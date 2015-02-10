@@ -1,2 +1,2 @@
-# AutoPickup
-This is a Minecraft server plugin which automatically picks up items for you and puts them in your inventory.
+# Secutilities
+This is a plugin for the official SecurityCraft server "BreakIn' Bad" with all kinds of miscellaneous stuff in it.
