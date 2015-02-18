@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bl4ckscor3.plugin.secutilities.listener.BlockBreakListener;
+import bl4ckscor3.plugin.secutilities.listener.BlockPlaceListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -14,6 +15,7 @@ public class Secutilities extends JavaPlugin
 	public void onEnable()
 	{
 		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
 		System.out.println("[" + getDescription().getName() + "] v " + getDescription().getVersion() + " enabled.");
 	}
 
@@ -38,7 +40,7 @@ public class Secutilities extends JavaPlugin
 
 		if(cmd.getName().equalsIgnoreCase("blockbreak"))
 		{
-			if(p.hasPermission("blockbreak.toggle"))
+			if(p.hasPermission("secutil.blockbreak.toggle"))
 			{
 				if(!BlockBreakListener.blockBreakOff.contains(p.getName()))
 				{
@@ -54,7 +56,24 @@ public class Secutilities extends JavaPlugin
 				return true;
 			}
 		}
-
+		else if(cmd.getName().equalsIgnoreCase("blockplace"))
+		{
+			if(p.hasPermission("secutil.blockplace.toggle"))
+			{
+				if(!BlockPlaceListener.blockPlaceOff.contains(p.getName()))
+				{
+					BlockPlaceListener.blockPlaceOff.add(p.getName());
+					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.RED + "OFF" + ChatColor.RESET + ".");
+				}
+				else
+				{
+					BlockPlaceListener.blockPlaceOff.remove(p.getName());
+					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.GREEN + "ON" + ChatColor.RESET + ".");
+				}
+				
+				return true;
+			}
+		}
 		return false;
 	}
 }

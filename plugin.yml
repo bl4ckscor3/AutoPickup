@@ -1,13 +1,18 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.0
+version: 1.1
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
     blockbreak:
         description: Toggle block breaking on/off.
         usage: /<command>
+    blockplace:
+        description: Toggle block placing on/off.
+        usage: /<command>
 permissions:
-    blockbreak.toggle:
+    secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
+    secutil.blockplace.toggle:
+        description: Gives access to the /blockplace command.
         
