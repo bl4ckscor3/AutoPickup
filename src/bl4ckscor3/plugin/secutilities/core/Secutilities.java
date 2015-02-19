@@ -43,6 +43,9 @@ public class Secutilities extends JavaPlugin
 		{
 			if(p.hasPermission("secutil.blockbreak.toggle"))
 			{
+				if(args.length < 0)
+					return false;
+				
 				BlockBreak.exe(p, this);				
 				return true;
 			}
@@ -51,6 +54,10 @@ public class Secutilities extends JavaPlugin
 		{
 			if(p.hasPermission("secutil.blockplace.toggle"))
 			{
+				if(args.length < 0)
+					return false;
+	
+				
 				BlockPlace.exe(p, this);
 				return true;
 			}
