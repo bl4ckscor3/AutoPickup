@@ -1,11 +1,12 @@
 package bl4ckscor3.plugin.secutilities.core;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockBreak;
+import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
 
@@ -42,17 +43,7 @@ public class Secutilities extends JavaPlugin
 		{
 			if(p.hasPermission("secutil.blockbreak.toggle"))
 			{
-				if(!BlockBreakListener.blockBreakOff.contains(p.getName()))
-				{
-					BlockBreakListener.blockBreakOff.add(p.getName());
-					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block breaking " + ChatColor.RED + "OFF" + ChatColor.RESET + ".");
-				}
-				else
-				{
-					BlockBreakListener.blockBreakOff.remove(p.getName());
-					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block breaking " + ChatColor.GREEN + "ON" + ChatColor.RESET + ".");
-				}
-				
+				BlockBreak.exe(p, this);				
 				return true;
 			}
 		}
@@ -60,17 +51,7 @@ public class Secutilities extends JavaPlugin
 		{
 			if(p.hasPermission("secutil.blockplace.toggle"))
 			{
-				if(!BlockPlaceListener.blockPlaceOff.contains(p.getName()))
-				{
-					BlockPlaceListener.blockPlaceOff.add(p.getName());
-					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.RED + "OFF" + ChatColor.RESET + ".");
-				}
-				else
-				{
-					BlockPlaceListener.blockPlaceOff.remove(p.getName());
-					p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.GREEN + "ON" + ChatColor.RESET + ".");
-				}
-				
+				BlockPlace.exe(p, this);
 				return true;
 			}
 		}
