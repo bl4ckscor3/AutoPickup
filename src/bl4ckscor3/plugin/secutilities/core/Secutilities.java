@@ -6,8 +6,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import bl4ckscor3.plugin.secutilities.listener.BlockBreakListener;
-import bl4ckscor3.plugin.secutilities.listener.BlockPlaceListener;
+import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
+import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
 
 public class Secutilities extends JavaPlugin
 {
