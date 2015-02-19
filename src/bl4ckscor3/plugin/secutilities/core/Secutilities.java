@@ -9,6 +9,7 @@ import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
+import bl4ckscor3.plugin.secutilities.features.colorcodes.commands.ColorCodes;
 
 public class Secutilities extends JavaPlugin
 {
@@ -59,6 +60,17 @@ public class Secutilities extends JavaPlugin
 	
 				
 				BlockPlace.exe(p, this);
+				return true;
+			}
+		}
+		else if(cmd.getName().equalsIgnoreCase("colorcodes"))
+		{
+			if(p.hasPermission("secutil.colorcodes"))
+			{
+				if(args.length < 0)
+					return false;
+	
+				ColorCodes.exe(p, this);
 				return true;
 			}
 		}
