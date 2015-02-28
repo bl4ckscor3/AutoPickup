@@ -10,6 +10,8 @@ import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.colorcodes.commands.ColorCodes;
+import bl4ckscor3.plugin.secutilities.features.pvplimit.PvPLimit;
+import bl4ckscor3.plugin.secutilities.features.pvplimit.listener.PlayerQuitListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -18,6 +20,9 @@ public class Secutilities extends JavaPlugin
 	{
 		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
+		PvPLimit.setup(this);
+		PvPLimit.checkPlayerPos();
 		System.out.println("[" + getDescription().getName() + "] v " + getDescription().getVersion() + " enabled.");
 	}
 
