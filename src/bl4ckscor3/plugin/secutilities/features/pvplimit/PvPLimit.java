@@ -32,17 +32,16 @@ public class PvPLimit
 						continue;
 					
 					int x = p.getLocation().getBlockX();
-					int y = p.getLocation().getBlockY();
 					int z = p.getLocation().getBlockZ();
 
 					if(playersWithinPvP.contains(p.getName()))
 					{
-						if(!((x >= -195 && x <= -141) && (y >= 130 && y <= 141) && (z >= -3029 && z <= -2979)))
+						if(!((x >= -243 && x <= -93) && (z >= -3079 && z <= -2929)))
 							playersWithinPvP.remove(p.getName());
 						continue;
 					}
 					
-					if((x >= -195 && x <= -141) && (y >= 130 && y <= 141) && (z >= -3029 && z <= -2979))
+					if((x >= -243 && x <= -93) && (z >= -3079 && z <= -2929))
 					{
 						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walk 1 " + p.getName());
 						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed fly 1 " + p.getName());
