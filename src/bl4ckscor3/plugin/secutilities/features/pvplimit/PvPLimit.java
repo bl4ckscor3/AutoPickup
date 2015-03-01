@@ -1,66 +1,63 @@
 package bl4ckscor3.plugin.secutilities.features.pvplimit;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.secutilities.core.Secutilities;
+import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
+import bl4ckscor3.plugin.secutilities.util.Utilities;
+
+import com.earth2me.essentials.Essentials;
+import com.earth2me.essentials.User;
+import com.mewin.WGRegionEvents.events.RegionEnteredEvent;
+
 //This is hardcoded for BreakIn' Bad
-public class PvPLimit
+public class PvPLimit implements Listener
 {
 	private static Plugin plugin;
-	private static List<String> playersWithinPvP = new ArrayList<String>();
-	
-	public static void setup(Plugin pl)
+	private static Essentials ess;
+
+	public static void setup(Plugin pl) throws PluginNotInstalledException
 	{
 		plugin = pl;
+		ess = (Essentials)Utilities.getPlugin((Secutilities)plugin, "Essentials");
 	}
 
-	public static void checkPlayerPos()
+	@EventHandler
+	public void onRegionEntered(RegionEnteredEvent event) throws IOException
 	{
-		plugin.getServer().getScheduler().scheduleSyncRepeatingTask(plugin, new Runnable()
+		if(event.getRegion().getId().equals("pvp"))
 		{
-			@Override
-			public void run() 
-			{
-				for(Player p : Bukkit.getOnlinePlayers())
-				{
-					if(p.hasPermission("secutil.pvplimit.bypass"))
-						continue;
-					
-					int x = p.getLocation().getBlockX();
-					int z = p.getLocation().getBlockZ();
+			if(event.getPlayer().hasPermission("secutil.pvplimit.bypass"))
+				return;
 
-					if(playersWithinPvP.contains(p.getName()))
-					{
-						if(!((x >= -243 && x <= -93) && (z >= -3079 && z <= -2929)))
-							playersWithinPvP.remove(p.getName());
-						continue;
-					}
-					
-					if((x >= -243 && x <= -93) && (z >= -3079 && z <= -2929))
-					{
-						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed walk 1 " + p.getName());
-						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "speed fly 1 " + p.getName());
-						Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "fly " + p.getName() + " disable");
-						p.sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] You are not allowed to walk fast and fly within the pvp arena.");
-						playersWithinPvP.add(p.getName());
-					}
-				}
+			User u = ess.getUser(event.getPlayer());
+			boolean cheatWasEnabled = false;
+			
+			if(u.isGodModeEnabled())
+			{
+				u.setGodModeEnabled(false);
+				cheatWasEnabled = true;
 			}
-		}, 0, 60);
-	}
-	
-	public static List<String> getPlayersWithinPvP()
-	{
-		return playersWithinPvP;
-	}
-	
-	public static void removePlayer(String name)
-	{
-		playersWithinPvP.remove(name);
+
+			if(u.isFlying())
+			{
+				u.setFlying(false);
+				cheatWasEnabled = true;
+			}
+
+			if(u.getWalkSpeed() >= 1.0F)
+			{
+				u.setWalkSpeed(0.2F);
+				cheatWasEnabled = true;
+			}
+
+			if(cheatWasEnabled)
+				event.getPlayer().sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] You are not allowed to have cheats enabled in the PvP-Arena.");
+		}
 	}
 }

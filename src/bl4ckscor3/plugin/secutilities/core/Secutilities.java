@@ -5,13 +5,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.colorcodes.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.pvplimit.PvPLimit;
-import bl4ckscor3.plugin.secutilities.features.pvplimit.listener.PlayerQuitListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -20,9 +20,17 @@ public class Secutilities extends JavaPlugin
 	{
 		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-		PvPLimit.setup(this);
-		PvPLimit.checkPlayerPos();
+		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
+		
+		try
+		{
+			PvPLimit.setup(this);
+		}
+		catch(PluginNotInstalledException e)
+		{
+			e.printStackTrace();
+		}
+
 		System.out.println("[" + getDescription().getName() + "] v " + getDescription().getVersion() + " enabled.");
 	}
 
