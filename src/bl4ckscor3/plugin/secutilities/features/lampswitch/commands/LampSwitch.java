@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.core.lampswitch.commands;
+package bl4ckscor3.plugin.secutilities.features.lampswitch.commands;
 
 
 import org.bukkit.ChatColor;

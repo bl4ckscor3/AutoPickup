@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.core.lampswitch.listener;
+package bl4ckscor3.plugin.secutilities.features.lampswitch.listener;
 
 import java.util.ArrayList;
 import java.util.List;
