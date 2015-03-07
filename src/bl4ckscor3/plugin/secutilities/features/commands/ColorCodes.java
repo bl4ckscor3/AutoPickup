@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.colorcodes.commands;
+package bl4ckscor3.plugin.secutilities.features.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

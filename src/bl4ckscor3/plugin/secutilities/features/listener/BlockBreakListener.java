@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.breakplace.listener;
+package bl4ckscor3.plugin.secutilities.features.listener;
 
 import java.io.IOException;
 import java.util.ArrayList;

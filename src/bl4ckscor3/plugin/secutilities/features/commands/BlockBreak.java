@@ -1,10 +1,10 @@
-package bl4ckscor3.plugin.secutilities.features.breakplace.commands;
+package bl4ckscor3.plugin.secutilities.features.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
+import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 
 public class BlockBreak
 {

@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.loctool.listener;
+package bl4ckscor3.plugin.secutilities.features.listener;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
