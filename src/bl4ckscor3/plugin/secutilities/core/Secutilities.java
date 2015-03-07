@@ -6,13 +6,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import bl4ckscor3.plugin.secutilities.core.lampswitch.commands.LampSwitch;
-import bl4ckscor3.plugin.secutilities.core.lampswitch.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.breakplace.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.colorcodes.commands.ColorCodes;
+import bl4ckscor3.plugin.secutilities.features.loctool.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.pvplimit.PvPLimit;
 
 public class Secutilities extends JavaPlugin
@@ -22,7 +22,8 @@ public class Secutilities extends JavaPlugin
 	{
 		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+		getServer().getPluginManager().registerEvents(new bl4ckscor3.plugin.secutilities.core.lampswitch.listener.PlayerInteractListener(), this);
+		getServer().getPluginManager().registerEvents(new bl4ckscor3.plugin.secutilities.features.loctool.listener.PlayerInteractListener(this), this);
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		
 		try
@@ -98,6 +99,17 @@ public class Secutilities extends JavaPlugin
 					return false;
 				
 				LampSwitch.exe(p, this);
+				return true;
+			}			
+		}
+		else if(cmd.getName().equalsIgnoreCase("loctool"))
+		{
+			if(p.hasPermission("secutil.lampswitch.loctool.toggle"))
+			{
+				if(args.length != 0)
+					return false;
+				
+				LocTool.exe(p, this);
 				return true;
 			}			
 		}

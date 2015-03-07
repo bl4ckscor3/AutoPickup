@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.5
+version: 1.6
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -18,6 +18,9 @@ commands:
         description: Toggles the ability to switch a redstone lamp on/off via rightclicking it.
         usage: /<command>
         aliases: [redstonelamp,ls,rl]
+    loctool:
+        description: This gives the player a tool which prints out the coordinates of the block rightclicked.
+        usage: /<command>
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
@@ -33,4 +36,7 @@ permissions:
         default: op
     secutil.lampswitch.toggle:
         description: Gives access to the /lampswitch command.
+        default: op
+    secutil.locationtool.give:
+        description: Gives access to the /loctool command.
         default: op
