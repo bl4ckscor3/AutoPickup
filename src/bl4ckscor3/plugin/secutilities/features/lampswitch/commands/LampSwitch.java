@@ -1,11 +1,10 @@
 package bl4ckscor3.plugin.secutilities.features.lampswitch.commands;
 
-
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.core.lampswitch.listener.PlayerInteractListener;
+import bl4ckscor3.plugin.secutilities.features.lampswitch.listener.PlayerInteractListener;
 
 public class LampSwitch
 {

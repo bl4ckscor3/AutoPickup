@@ -91,20 +91,20 @@ public class Secutilities extends JavaPlugin
 				return true;
 			}
 		}
-		else if(cmd.getName().equalsIgnoreCase("lampswitch"))
-		{
-			if(p.hasPermission("secutil.lampswitch.toggle"))
-			{
-				if(args.length != 0)
-					return false;
-				
-				LampSwitch.exe(p, this);
-				return true;
-			}			
-		}
+//		else if(cmd.getName().equalsIgnoreCase("lampswitch"))
+//		{
+//			if(p.hasPermission("secutil.lampswitch.toggle"))
+//			{
+//				if(args.length != 0)
+//					return false;
+//				
+//				LampSwitch.exe(p, this);
+//				return true;
+//			}			
+//		}
 		else if(cmd.getName().equalsIgnoreCase("loctool"))
 		{
-			if(p.hasPermission("secutil.lampswitch.loctool.toggle"))
+			if(p.hasPermission("secutil.loctool.give"))
 			{
 				if(args.length != 0)
 					return false;

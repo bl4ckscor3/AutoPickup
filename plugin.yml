@@ -37,6 +37,6 @@ permissions:
     secutil.lampswitch.toggle:
         description: Gives access to the /lampswitch command.
         default: op
-    secutil.locationtool.give:
+    secutil.loctool.give:
         description: Gives access to the /loctool command.
         default: op
