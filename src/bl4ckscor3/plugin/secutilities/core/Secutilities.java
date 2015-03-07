@@ -5,6 +5,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import bl4ckscor3.plugin.secutilities.core.lampswitch.commands.LampSwitch;
+import bl4ckscor3.plugin.secutilities.core.lampswitch.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.breakplace.commands.BlockPlace;
@@ -20,6 +22,7 @@ public class Secutilities extends JavaPlugin
 	{
 		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		
 		try
@@ -86,6 +89,17 @@ public class Secutilities extends JavaPlugin
 				ColorCodes.exe(p, this);
 				return true;
 			}
+		}
+		else if(cmd.getName().equalsIgnoreCase("lampswitch"))
+		{
+			if(p.hasPermission("secutil.lampswitch.toggle"))
+			{
+				if(args.length != 0)
+					return false;
+				
+				LampSwitch.exe(p, this);
+				return true;
+			}			
 		}
 		return false;
 	}

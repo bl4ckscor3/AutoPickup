@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.4
+version: 1.5
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -14,6 +14,10 @@ commands:
         description: Shows all the chat formatting codes.
         usage: /<command>
         aliases: [cc]
+    lampswitch:
+        description: Toggles the ability to switch a redstone lamp on/off via rightclicking it.
+        usage: /<command>
+        aliases: [redstonelamp,ls,rl]
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
@@ -26,4 +30,7 @@ permissions:
         default: op
     secutil.pvplimit.bypass:
         description: Allows to bypass the fly and speed restriction in the PvP arena.
+        default: op
+    secutil.lampswitch.toggle:
+        description: Gives access to the /lampswitch command.
         default: op
