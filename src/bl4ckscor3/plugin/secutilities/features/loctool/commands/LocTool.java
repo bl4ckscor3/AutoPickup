@@ -1,5 +1,8 @@
 package bl4ckscor3.plugin.secutilities.features.loctool.commands;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,8 +15,10 @@ public class LocTool
 	{
 		ItemStack stack = new ItemStack(Material.PAPER);
 		ItemMeta meta = stack.getItemMeta();
+		List<String> lore = new ArrayList<String>();
 		
-		meta.setDisplayName("Location Tool");
+		lore.add("Location Tool");
+		meta.setLore(lore);
 		stack.setItemMeta(meta);
 		p.getInventory().addItem(stack);
 	}
