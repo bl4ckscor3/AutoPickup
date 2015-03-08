@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.pvplimit;
+package bl4ckscor3.plugin.secutilities.features;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import com.earth2me.essentials.Essentials;
 import com.earth2me.essentials.User;
 import com.mewin.WGRegionEvents.events.RegionEnteredEvent;
 
-//This is hardcoded for BreakIn' Bad
+//This is semi hardcoded for BreakIn' Bad
 public class PvPLimit implements Listener
 {
 	private static Plugin plugin;
