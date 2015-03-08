@@ -14,10 +14,6 @@ commands:
         description: Shows all the chat formatting codes.
         usage: /<command>
         aliases: [cc]
-    lampswitch:
-        description: Toggles the ability to switch a redstone lamp on/off via rightclicking it.
-        usage: /<command>
-        aliases: [redstonelamp,ls,rl]
     loctool:
         description: This gives the player a tool which prints out the coordinates of the block rightclicked.
         usage: /<command>
