@@ -1,7 +1,11 @@
 package bl4ckscor3.plugin.secutilities.core;
 
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -11,6 +15,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
+import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
@@ -47,7 +52,15 @@ public class Secutilities extends JavaPlugin
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		Player p = null;
-
+		
+		if(cmd.getName().equalsIgnoreCase("pvpcountdown") && (!(sender instanceof ConsoleCommandSender) && !(sender instanceof Player)))
+		{
+			if(args.length != 0)
+				return false;
+			PvPCountdown.exe(sender, this);
+			return true;
+		}
+		
 		if(sender instanceof Player)
 			p = (Player)sender;
 		else
@@ -99,6 +112,11 @@ public class Secutilities extends JavaPlugin
 				LocTool.exe(p, this);
 				return true;
 			}			
+		}
+		else if(cmd.getName().equalsIgnoreCase("pvpcountdown"))
+		{
+			p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
+			return true;
 		}
 		return false;
 	}

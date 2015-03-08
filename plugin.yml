@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.6.3
+version: 1.7
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -16,6 +16,9 @@ commands:
         aliases: [cc]
     loctool:
         description: This gives the player a tool which prints out the coordinates of the block rightclicked.
+        usage: /<command>
+    pvpcountdown:
+        description: Starts the countdown for PvP-Arenas. Only useable by command blocks.
         usage: /<command>
 permissions:
     secutil.blockbreak.toggle:
