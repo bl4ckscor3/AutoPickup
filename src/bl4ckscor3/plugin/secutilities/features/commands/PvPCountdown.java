@@ -7,10 +7,9 @@ import org.bukkit.scheduler.BukkitScheduler;
 
 public class PvPCountdown
 {
-	public static void exe(final CommandSender sender, final Plugin plugin)
+	public static void exe(final CommandSender sender, final Plugin plugin, final String[] args)
 	{
 		final BukkitScheduler scheduler = Bukkit.getScheduler();
-
 		Runnable r = new Runnable()
 		{
 			int i = 10;
@@ -20,6 +19,10 @@ public class PvPCountdown
 				if(i == 0)
 				{
 					Bukkit.dispatchCommand(sender, "broadcast Fight!");
+					
+					if(args.length == 3)
+						Bukkit.dispatchCommand(sender, "setblock " + args[0] + " " + args[1] + " " + args[2] + " minecraft:redstone_block");
+					
 					scheduler.cancelAllTasks();
 					return;
 				}

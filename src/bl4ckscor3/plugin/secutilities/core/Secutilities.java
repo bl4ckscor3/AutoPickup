@@ -1,8 +1,6 @@
 package bl4ckscor3.plugin.secutilities.core;
 
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.block.CommandBlock;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
@@ -16,6 +14,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
+import bl4ckscor3.plugin.secutilities.features.commands.TpOverride;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
@@ -55,9 +54,10 @@ public class Secutilities extends JavaPlugin
 		
 		if(cmd.getName().equalsIgnoreCase("pvpcountdown") && (!(sender instanceof ConsoleCommandSender) && !(sender instanceof Player)))
 		{
-			if(args.length != 0)
+			if(args.length == 1 || args.length == 2 || args.length > 3)
 				return false;
-			PvPCountdown.exe(sender, this);
+			
+			PvPCountdown.exe(sender, this, args);
 			return true;
 		}
 		
@@ -116,6 +116,16 @@ public class Secutilities extends JavaPlugin
 		else if(cmd.getName().equalsIgnoreCase("pvpcountdown"))
 		{
 			p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
+			return true;
+		}
+		else if(cmd.getName().equalsIgnoreCase("tp"))
+		{
+			TpOverride.exe(p, args, args.length < 3 ? "tpo " : "tele ");
+			return true;
+		}
+		else if(cmd.getName().equalsIgnoreCase("tphere"))
+		{
+			TpOverride.exe(p, args, "tpohere ");
 			return true;
 		}
 		return false;

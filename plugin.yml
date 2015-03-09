@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.7
+version: 1.8
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -18,8 +18,16 @@ commands:
         description: This gives the player a tool which prints out the coordinates of the block rightclicked.
         usage: /<command>
     pvpcountdown:
-        description: Starts the countdown for PvP-Arenas. Only useable by command blocks.
-        usage: /<command>
+        description: Starts the countdown for PvP-Arenas. Only useable by command blocks. The coordinates can be used to set a redstoneblock at them after the countdown is over. Removal is manual.
+        usage: /<command> [x] [y] [z]
+    tp:
+        description: Executes /tpo if neccessary.
+        usage: /<command> [args]
+        aliases: [tp2p,teleport]
+    tphere:
+        description: Executes /tpohere if neccessary.
+        usage: /<command> [args]
+        aliases: [s]
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
