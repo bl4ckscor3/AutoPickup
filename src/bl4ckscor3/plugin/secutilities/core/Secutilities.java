@@ -77,7 +77,6 @@ public class Secutilities extends JavaPlugin
 					return false;
 				
 				BlockBreak.exe(p, this);				
-				return true;
 			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("blockplace"))
@@ -88,7 +87,6 @@ public class Secutilities extends JavaPlugin
 					return false;
 				
 				BlockPlace.exe(p, this);
-				return true;
 			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("colorcodes"))
@@ -99,7 +97,6 @@ public class Secutilities extends JavaPlugin
 					return false;
 	
 				ColorCodes.exe(p, this);
-				return true;
 			}
 		}
 		else if(cmd.getName().equalsIgnoreCase("loctool"))
@@ -110,24 +107,16 @@ public class Secutilities extends JavaPlugin
 					return false;
 				
 				LocTool.exe(p, this);
-				return true;
 			}			
 		}
 		else if(cmd.getName().equalsIgnoreCase("pvpcountdown"))
-		{
 			p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
-			return true;
-		}
 		else if(cmd.getName().equalsIgnoreCase("tp"))
-		{
 			TpOverride.exe(p, args, args.length < 3 ? "tpo " : "tele ");
-			return true;
-		}
 		else if(cmd.getName().equalsIgnoreCase("tphere"))
-		{
 			TpOverride.exe(p, args, "tpohere ");
-			return true;
-		}
-		return false;
+		else
+			return false;
+		return true;
 	}
 }
