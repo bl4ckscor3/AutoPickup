@@ -30,7 +30,7 @@ public class PvPLimit implements Listener
 	@EventHandler
 	public void onRegionEntered(RegionEnteredEvent event) throws IOException
 	{
-		if(event.getRegion().getId().equals("pvp"))
+		if(event.getRegion().getId().equals("pvp") || event.getRegion().getId().equals("pvp_autumn"))
 		{
 			if(event.getPlayer().hasPermission("secutil.pvplimit.bypass"))
 				return;
