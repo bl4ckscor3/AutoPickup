@@ -1,12 +1,15 @@
 package bl4ckscor3.plugin.secutilities.features;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
+import sun.java2d.pipe.RegionSpanIterator;
 import bl4ckscor3.plugin.secutilities.core.Secutilities;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.util.Utilities;
@@ -20,17 +23,21 @@ public class PvPLimit implements Listener
 {
 	private static Plugin plugin;
 	private static Essentials ess;
-
+	private static List<String> regions = new ArrayList<String>();
+	
 	public static void setup(Plugin pl) throws PluginNotInstalledException
 	{
 		plugin = pl;
 		ess = (Essentials)Utilities.getPlugin((Secutilities)plugin, "Essentials");
+		regions.add("pvp");
+		regions.add("pvp_autumn");
+		regions.add("pvp_yoshiland");
 	}
 
 	@EventHandler
 	public void onRegionEntered(RegionEnteredEvent event) throws IOException
 	{
-		if(event.getRegion().getId().equals("pvp") || event.getRegion().getId().equals("pvp_autumn"))
+		if(regions.contains(event.getRegion().getId()))
 		{
 			if(event.getPlayer().hasPermission("secutil.pvplimit.bypass"))
 				return;
