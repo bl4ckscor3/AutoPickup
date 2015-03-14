@@ -32,6 +32,22 @@ commands:
         description: Removes all potion effects from the (given) player
         usage: /<command> [player]
 permissions:
+    secutil.*:
+        description: Gives access to all Secutilities commands.
+        default: op
+        children:
+            secutil.blockbreak.toggle: true
+            secutil.blockplace.toggle: true
+            secutil.colorcodes: true
+            secutil.pvplimit.bypass: true
+            secutil.loctool.give: true
+            secutil.milk.*: true
+    secutil.milk.*:
+        description: Gives use all features from /milk
+        default: op
+        children:
+            secutil.milk.own: true
+            secutil.milk.others: true
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
         default: op
@@ -44,12 +60,9 @@ permissions:
     secutil.pvplimit.bypass:
         description: Allows to bypass the fly and speed restriction in the PvP arena.
         default: op
-    secutil.lampswitch.toggle:
-        description: Gives access to the /lampswitch command.
-        default: op
     secutil.loctool.give:
         description: Gives access to the /loctool command.
-        default: op
+        default: op10test
     secutil.milk.own:
         description: Gives access to the /milk oneself.
         default: op
