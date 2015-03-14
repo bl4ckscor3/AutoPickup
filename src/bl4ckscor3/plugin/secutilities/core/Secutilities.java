@@ -19,7 +19,9 @@ import bl4ckscor3.plugin.secutilities.features.commands.TpOverride;
 import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
+import bl4ckscor3.plugin.secutilities.features.listener.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
+import bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 
 public class Secutilities extends JavaPlugin
@@ -33,6 +35,8 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		getServer().getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
 		
 		try
 		{
