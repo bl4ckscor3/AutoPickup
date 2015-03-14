@@ -13,6 +13,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
+import bl4ckscor3.plugin.secutilities.features.commands.Milk;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
 import bl4ckscor3.plugin.secutilities.features.commands.TpOverride;
 import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
@@ -119,6 +120,13 @@ public class Secutilities extends JavaPlugin
 			TpOverride.exe(p, args, args.length < 3 ? "tpo " : "tele ");
 		else if(cmd.getName().equalsIgnoreCase("tphere"))
 			TpOverride.exe(p, args, "tpohere ");
+		else if(cmd.getName().equalsIgnoreCase("milk"))
+		{
+			if(args.length > 1)
+				return false;
+			
+			Milk.exe(p, this, args);
+		}
 		else
 			return false;
 		return true;
