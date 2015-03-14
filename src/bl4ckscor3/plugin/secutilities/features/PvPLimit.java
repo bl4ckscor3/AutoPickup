@@ -9,7 +9,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
-import sun.java2d.pipe.RegionSpanIterator;
 import bl4ckscor3.plugin.secutilities.core.Secutilities;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.util.Utilities;

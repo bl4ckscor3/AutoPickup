@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.9
+version: 1.9.1
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -34,7 +34,6 @@ commands:
 permissions:
     secutil.*:
         description: Gives access to all Secutilities commands.
-        default: op
         children:
             secutil.blockbreak.toggle: true
             secutil.blockplace.toggle: true
@@ -43,8 +42,7 @@ permissions:
             secutil.loctool.give: true
             secutil.milk.*: true
     secutil.milk.*:
-        description: Gives use all features from /milk
-        default: op
+        description: Gives access to all features from /milk
         children:
             secutil.milk.own: true
             secutil.milk.others: true
@@ -62,7 +60,7 @@ permissions:
         default: op
     secutil.loctool.give:
         description: Gives access to the /loctool command.
-        default: op10test
+        default: op
     secutil.milk.own:
         description: Gives access to the /milk oneself.
         default: op
