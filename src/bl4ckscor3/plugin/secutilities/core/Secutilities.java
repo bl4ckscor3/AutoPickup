@@ -23,6 +23,9 @@ import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerJoinListener;
+import bl4ckscor3.plugin.secutilities.util.Utilities;
+
+import com.earth2me.essentials.Essentials;
 
 public class Secutilities extends JavaPlugin
 {
@@ -130,6 +133,17 @@ public class Secutilities extends JavaPlugin
 				return false;
 			
 			Milk.exe(p, this, args);
+		}
+		else if(cmd.getName().equals("uniqueplayers"))
+		{
+			try
+			{
+				p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] " + ChatColor.GOLD + ((Essentials)Utilities.getPlugin(this, "Essentials")).getUserMap().getUniqueUsers() + ChatColor.RESET + " unique players have joined the server.");
+			}
+			catch(PluginNotInstalledException e)
+			{
+				e.printStackTrace();
+			}
 		}
 		else
 			return false;

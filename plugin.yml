@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.10
+version: 1.11
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -31,21 +31,11 @@ commands:
     milk:
         description: Removes all potion effects from the (given) player
         usage: /<command> [player]
+    uniqueplayers:
+        description: Shows the number of unique players that joined the server.
+        usage: /<command>
+        aliases: [uplayers,players,unique]
 permissions:
-    secutil.*:
-        description: Gives access to all Secutilities commands.
-        children:
-            secutil.blockbreak.toggle: true
-            secutil.blockplace.toggle: true
-            secutil.colorcodes: true
-            secutil.pvplimit.bypass: true
-            secutil.loctool.give: true
-            secutil.milk.*: true
-    secutil.milk.*:
-        description: Gives access to all features from /milk
-        children:
-            secutil.milk.own: true
-            secutil.milk.others: true
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
         default: op
