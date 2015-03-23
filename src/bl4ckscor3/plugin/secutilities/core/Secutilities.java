@@ -1,12 +1,14 @@
 package bl4ckscor3.plugin.secutilities.core;
 
-import org.bukkit.ChatColor;
+import java.util.LinkedList;
+
+import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.PvPLimit;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
@@ -16,6 +18,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
 import bl4ckscor3.plugin.secutilities.features.commands.TpOverride;
+import bl4ckscor3.plugin.secutilities.features.commands.UniquePlayers;
 import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
@@ -23,12 +26,21 @@ import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerJoinListener;
-import bl4ckscor3.plugin.secutilities.util.Utilities;
-
-import com.earth2me.essentials.Essentials;
 
 public class Secutilities extends JavaPlugin
 {
+	private static final LinkedList<ISecutilCommand> commands = new LinkedList<ISecutilCommand>();
+	
+	private void setupCommands()
+	{
+		commands.add(new BlockBreak());
+		commands.add(new BlockPlace());
+		commands.add(new ColorCodes());
+		commands.add(new LocTool());
+		commands.add(new Milk());
+		commands.add(new UniquePlayers());
+	}
+	
 	@Override
 	public void onEnable()
 	{
@@ -40,6 +52,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
+		setupCommands();
 		
 		try
 		{
@@ -63,8 +76,8 @@ public class Secutilities extends JavaPlugin
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		Player p = null;
-		
-		if(cmd.getName().equalsIgnoreCase("pvpcountdown") && (!(sender instanceof ConsoleCommandSender) && !(sender instanceof Player)))
+
+		if(cmd.getName().equalsIgnoreCase("pvpcountdown") && sender instanceof BlockCommandSender)
 		{
 			if(args.length == 1 || args.length == 2 || args.length > 3)
 				return false;
@@ -81,72 +94,48 @@ public class Secutilities extends JavaPlugin
 			return true;
 		}
 
-		if(cmd.getName().equalsIgnoreCase("blockbreak"))
+		for(ISecutilCommand secutilCmd : commands)
 		{
-			if(p.hasPermission("secutil.blockbreak.toggle"))
+			if(secutilCmd.getLabel().equalsIgnoreCase(cmd.getName()))
 			{
-				if(args.length < 0)
-					return false;
-				
-				BlockBreak.exe(p, this);				
+				if(hasAPermission(p, secutilCmd.getRequiredPermission()))
+				{
+					if(secutilCmd.allowedArgumentLengths().contains(args.length))
+					{
+						secutilCmd.exe(p, this, args);
+						return true;
+					}
+					else
+						return false;
+				}
 			}
 		}
-		else if(cmd.getName().equalsIgnoreCase("blockplace"))
+		
+		if(cmd.getName().equalsIgnoreCase("tp"))
 		{
-			if(p.hasPermission("secutil.blockplace.toggle"))
-			{
-				if(args.length < 0)
-					return false;
-				
-				BlockPlace.exe(p, this);
-			}
-		}
-		else if(cmd.getName().equalsIgnoreCase("colorcodes"))
-		{
-			if(p.hasPermission("secutil.colorcodes"))
-			{
-				if(args.length < 0)
-					return false;
-	
-				ColorCodes.exe(p, this);
-			}
-		}
-		else if(cmd.getName().equalsIgnoreCase("loctool"))
-		{
-			if(p.hasPermission("secutil.loctool.give"))
-			{
-				if(args.length != 0)
-					return false;
-				
-				LocTool.exe(p, this);
-			}			
-		}
-		else if(cmd.getName().equalsIgnoreCase("pvpcountdown"))
-			p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
-		else if(cmd.getName().equalsIgnoreCase("tp"))
 			TpOverride.exe(p, args, args.length < 3 ? "tpo " : "tele ");
+			return true;
+		}
 		else if(cmd.getName().equalsIgnoreCase("tphere"))
+		{
 			TpOverride.exe(p, args, "tpohere ");
-		else if(cmd.getName().equalsIgnoreCase("milk"))
-		{
-			if(args.length > 1)
-				return false;
-			
-			Milk.exe(p, this, args);
+			return true;
 		}
-		else if(cmd.getName().equals("uniqueplayers"))
+		
+		return false;
+	}
+	
+	private boolean hasAPermission(Player p, String[] perms)
+	{
+		if(perms == null) //player does not need a permission for the command
+			return true;
+		
+		for(String s : perms)
 		{
-			try
-			{
-				p.sendMessage("[" + ChatColor.BLUE + getDescription().getName() + ChatColor.RESET + "] " + ChatColor.GOLD + ((Essentials)Utilities.getPlugin(this, "Essentials")).getUserMap().getUniqueUsers() + ChatColor.RESET + " unique players have joined the server.");
-			}
-			catch(PluginNotInstalledException e)
-			{
-				e.printStackTrace();
-			}
+			if(p.hasPermission(s))
+				return true;
 		}
-		else
-			return false;
-		return true;
+		
+		return false;
 	}
 }

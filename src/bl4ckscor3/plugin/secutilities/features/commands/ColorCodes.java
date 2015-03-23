@@ -1,14 +1,19 @@
 package bl4ckscor3.plugin.secutilities.features.commands;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-public class ColorCodes
+import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
+
+public class ColorCodes implements ISecutilCommand
 {
-	public static void exe(Player p, Plugin plugin)
+	public void exe(Player p, Plugin pl, String[] args)
 	{
-		String prefix = "[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] ";
+		String prefix = "[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] ";
 		p.sendMessage(prefix + "&0: " + ChatColor.BLACK + "Black");
 		p.sendMessage(prefix + "&1: " + ChatColor.DARK_BLUE + "Dark Blue");
 		p.sendMessage(prefix + "&2: " + ChatColor.DARK_GREEN + "Dark Green");
@@ -30,5 +35,20 @@ public class ColorCodes
 		p.sendMessage(prefix + "&n: " + ChatColor.UNDERLINE + "Underlined");
 		p.sendMessage(prefix + "&o: " + ChatColor.ITALIC + "Italics");
 		p.sendMessage(prefix + "&r: " + ChatColor.RESET + "Remove all formatting");
+	}
+
+	public String getLabel()
+	{
+		return "colorcodes";
+	}
+
+	public String[] getRequiredPermission()
+	{
+		return new String[]{"secutil.colorcodes"};
+	}
+
+	public List<Integer> allowedArgumentLengths()
+	{
+		return Arrays.asList(new Integer[]{0});
 	}
 }

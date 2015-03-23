@@ -1,13 +1,25 @@
 package bl4ckscor3.plugin.secutilities.features.commands;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
-public class PvPCountdown
+import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
+
+public class PvPCountdown implements ISecutilCommand
 {
-	public static void exe(final CommandSender sender, final Plugin plugin, final String[] args)
+	public void exe(Player p, Plugin pl, String[] args)
+	{
+			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
+	}
+	
+	public static void exe(final CommandSender sender, Plugin pl, final String[] args)
 	{
 		final BukkitScheduler scheduler = Bukkit.getScheduler();
 		Runnable r = new Runnable()
@@ -31,6 +43,21 @@ public class PvPCountdown
 			}
 		};
 		
-		scheduler.runTaskTimer(plugin, r, 0, 20);
+		scheduler.runTaskTimer(pl, r, 0, 20);
+	}
+
+	public String getLabel()
+	{
+		return "pvpcountdown";
+	}
+
+	public String[] getRequiredPermission()
+	{
+		return null;
+	}
+
+	public List<Integer> allowedArgumentLengths()
+	{
+		return Arrays.asList(new Integer[]{0});
 	}
 }
