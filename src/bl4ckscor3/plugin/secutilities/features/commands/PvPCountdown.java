@@ -10,8 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
-import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
-
 public class PvPCountdown implements ISecutilCommand
 {
 	public void exe(Player p, Plugin pl, String[] args)

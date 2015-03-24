@@ -10,8 +10,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
-
 public class LocTool implements ISecutilCommand
 {
 	public void exe(Player p, Plugin pl, String[] args)

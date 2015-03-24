@@ -8,12 +8,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.PvPLimit;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
+import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
@@ -25,7 +25,6 @@ import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
-import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerJoinListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -50,7 +49,9 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		getServer().getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+		getServer().getPluginManager().registerEvents(new bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener(), this);
+		//timedisplayer
+		getServer().getPluginManager().registerEvents(new bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
 		setupCommands();
 		

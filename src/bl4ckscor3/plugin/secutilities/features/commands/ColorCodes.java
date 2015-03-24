@@ -7,8 +7,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
-
 public class ColorCodes implements ISecutilCommand
 {
 	public void exe(Player p, Plugin pl, String[] args)

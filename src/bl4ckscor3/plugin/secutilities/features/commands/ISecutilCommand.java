@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.commands;
+package bl4ckscor3.plugin.secutilities.features.commands;
 
 import java.util.List;
 
