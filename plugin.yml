@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 1.12.5
+version: 2.1
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -35,6 +35,9 @@ commands:
         description: Shows the number of unique players that joined the server.
         usage: /<command>
         aliases: [uplayers,players,unique]
+    signbreak:
+        description: Enables TehKitti to break signs.
+        usgae: /<command>
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
@@ -52,8 +55,11 @@ permissions:
         description: Gives access to the /loctool command.
         default: op
     secutil.milk.own:
-        description: Gives access to the /milk oneself.
+        description: Gives access to /milk oneself.
         default: op
     secutil.milk.others:
-        description: Gives access to the /milk others.
+        description: Gives access to /milk others.
+        default: op
+    secutil.signbreak.use:
+        description: Gives access to the /signbreak command.
         default: op

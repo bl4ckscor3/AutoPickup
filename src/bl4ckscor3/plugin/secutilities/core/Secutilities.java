@@ -17,6 +17,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;
+import bl4ckscor3.plugin.secutilities.features.commands.SignBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.TpOverride;
 import bl4ckscor3.plugin.secutilities.features.commands.UniquePlayers;
 import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
@@ -39,13 +40,14 @@ public class Secutilities extends JavaPlugin
 		commands.add(new ColorCodes());
 		commands.add(new LocTool());
 		commands.add(new Milk());
+		commands.add(new SignBreak());
 		commands.add(new UniquePlayers());
 	}
 	
 	@Override
 	public void onEnable()
 	{
-		getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+		getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
 		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(this), this);
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
