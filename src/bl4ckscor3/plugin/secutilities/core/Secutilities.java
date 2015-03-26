@@ -80,13 +80,26 @@ public class Secutilities extends JavaPlugin
 	{
 		Player p = null;
 
-		if(cmd.getName().equalsIgnoreCase("pvpcountdown") && sender instanceof BlockCommandSender)
+		if(sender instanceof BlockCommandSender)
 		{
-			if(args.length == 1 || args.length == 2 || args.length > 3)
-				return false;
-			
-			PvPCountdown.exe(sender, this, args);
-			return true;
+			if(cmd.getName().equalsIgnoreCase("pvpcountdown"))
+			{
+				if(args.length == 1 || args.length == 2 || args.length > 3)
+					return false;
+				
+				PvPCountdown.exe(sender, this, args);
+				return true;
+			}
+			else if(cmd.getName().equalsIgnoreCase("tp"))
+			{
+				TpOverride.exeCB((BlockCommandSender)sender, args, args.length < 3 ? "tpo " : "tele ");
+				return true;
+			}
+			else if(cmd.getName().equalsIgnoreCase("tphere"))
+			{
+				TpOverride.exeCB((BlockCommandSender)sender, args, "tpohere ");
+				return true;
+			}
 		}
 		
 		if(sender instanceof Player)
