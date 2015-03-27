@@ -27,7 +27,6 @@ import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.TDPlayerJoinListener;
-import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.TDPlayerQuitListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -56,7 +55,6 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		//timedisplayer
 		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
-		getServer().getPluginManager().registerEvents(new TDPlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
 		setupCommands();
 		
