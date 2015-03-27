@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.1
+version: 2.2
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 commands:
@@ -38,6 +38,10 @@ commands:
     signbreak:
         description: Enables TehKitti to break signs.
         usgae: /<command>
+    leather:
+        description: Gives the player the specified leather armor piece with the specified color.
+        usgae: /<command> <armorpiece> <hexcolor>
+    
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.
@@ -62,4 +66,7 @@ permissions:
         default: op
     secutil.signbreak.use:
         description: Gives access to the /signbreak command.
+        default: op
+    secutil.leather.use:
+        description: Gives access to the /leather command.
         default: op

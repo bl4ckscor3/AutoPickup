@@ -38,6 +38,7 @@ public class Secutilities extends JavaPlugin
 		commands.add(new BlockBreak());
 		commands.add(new BlockPlace());
 		commands.add(new ColorCodes());
+		commands.add(new Leather());
 		commands.add(new LocTool());
 		commands.add(new Milk());
 		commands.add(new SignBreak());
