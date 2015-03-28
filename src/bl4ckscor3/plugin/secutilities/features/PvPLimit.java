@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,7 +24,7 @@ public class PvPLimit implements Listener
 	private static Plugin plugin;
 	private static Essentials ess;
 	private static List<String> regions = new ArrayList<String>();
-	
+
 	public static void setup(Plugin pl) throws PluginNotInstalledException
 	{
 		plugin = pl;
@@ -43,18 +44,14 @@ public class PvPLimit implements Listener
 
 			User u = ess.getUser(event.getPlayer());
 			boolean cheatWasEnabled = false;
-			
+
 			if(u.isGodModeEnabled())
 			{
 				u.setGodModeEnabled(false);
 				cheatWasEnabled = true;
 			}
 
-			if(u.isFlying())
-			{
-				u.setFlying(false);
-				cheatWasEnabled = true;
-			}
+			u.setAllowFlight(false);
 
 			if(u.getWalkSpeed() >= 1.0F)
 			{
