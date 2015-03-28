@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 
 public class PvPCountdown implements ISecutilCommand
@@ -20,7 +21,7 @@ public class PvPCountdown implements ISecutilCommand
 	public static void exe(final CommandSender sender, Plugin pl, final String[] args)
 	{
 		final BukkitScheduler scheduler = Bukkit.getScheduler();
-		Runnable r = new Runnable()
+		BukkitRunnable r = new BukkitRunnable()
 		{
 			int i = 10;
 			
