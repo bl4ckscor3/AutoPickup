@@ -7,34 +7,35 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+
 public class ColorCodes implements ISecutilCommand
 {
 	public void exe(Player p, Plugin pl, String[] args)
 	{
-		String prefix = "[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] ";
-		p.sendMessage(prefix + "&0: " + ChatColor.BLACK + "Black");
-		p.sendMessage(prefix + "&1: " + ChatColor.DARK_BLUE + "Dark Blue");
-		p.sendMessage(prefix + "&2: " + ChatColor.DARK_GREEN + "Dark Green");
-		p.sendMessage(prefix + "&3: " + ChatColor.DARK_AQUA + "Cyan");
-		p.sendMessage(prefix + "&4: " + ChatColor.DARK_RED + "Dark Red");
-		p.sendMessage(prefix + "&5: " + ChatColor.DARK_PURPLE + "Purple");
-		p.sendMessage(prefix + "&6: " + ChatColor.GOLD + "Orange");
-		p.sendMessage(prefix + "&7: " + ChatColor.GRAY + "Grey");
-		p.sendMessage(prefix + "&8: " + ChatColor.DARK_GRAY + "Dark Grey");
-		p.sendMessage(prefix + "&a: " + ChatColor.GREEN + "Green");
-		p.sendMessage(prefix + "&b: " + ChatColor.AQUA + "Aqua");
-		p.sendMessage(prefix + "&c: " + ChatColor.RED + "Red");
-		p.sendMessage(prefix + "&d: " + ChatColor.LIGHT_PURPLE + "Magenta");
-		p.sendMessage(prefix + "&e: " + ChatColor.YELLOW + "Yellow");
-		p.sendMessage(prefix + "&f: " + ChatColor.WHITE + "White");
-		p.sendMessage(prefix + "&k: " + ChatColor.MAGIC + "Random");
-		p.sendMessage(prefix + "&l: " + ChatColor.BOLD + "Bold");
-		p.sendMessage(prefix + "&m: " + ChatColor.STRIKETHROUGH + "Strikethrough");
-		p.sendMessage(prefix + "&n: " + ChatColor.UNDERLINE + "Underlined");
-		p.sendMessage(prefix + "&o: " + ChatColor.ITALIC + "Italics");
-		p.sendMessage(prefix + "&r: " + ChatColor.RESET + "Remove all formatting");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&0: " + ChatColor.BLACK + "Black");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&1: " + ChatColor.DARK_BLUE + "Dark Blue");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&2: " + ChatColor.DARK_GREEN + "Dark Green");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&3: " + ChatColor.DARK_AQUA + "Cyan");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&4: " + ChatColor.DARK_RED + "Dark Red");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&5: " + ChatColor.DARK_PURPLE + "Purple");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&6: " + ChatColor.GOLD + "Orange");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&7: " + ChatColor.GRAY + "Grey");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&8: " + ChatColor.DARK_GRAY + "Dark Grey");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&a: " + ChatColor.GREEN + "Green");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&b: " + ChatColor.AQUA + "Aqua");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&c: " + ChatColor.RED + "Red");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&d: " + ChatColor.LIGHT_PURPLE + "Magenta");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&e: " + ChatColor.YELLOW + "Yellow");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&f: " + ChatColor.WHITE + "White");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&k: " + ChatColor.MAGIC + "Random");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&l: " + ChatColor.BOLD + "Bold");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&m: " + ChatColor.STRIKETHROUGH + "Strikethrough");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&n: " + ChatColor.UNDERLINE + "Underlined");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&o: " + ChatColor.ITALIC + "Italics");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "&r: " + ChatColor.RESET + "Remove all formatting");
 	}
-
+	
 	public String getLabel()
 	{
 		return "colorcodes";

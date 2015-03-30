@@ -8,7 +8,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.PvPLimit;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
@@ -67,13 +68,13 @@ public class Secutilities extends JavaPlugin
 			e.printStackTrace();
 		}
 
-		System.out.println("[" + getDescription().getName() + "] v " + getDescription().getVersion() + " enabled.");
+		bl4ckkitCore.getMessageManager().sendEnabledMessage(this);
 	}
 
 	@Override
 	public void onDisable()
 	{
-		System.out.println("[" + getDescription().getName() + "] v " + getDescription().getVersion() + " disabled.");
+		bl4ckkitCore.getMessageManager().sendDisabledMessage(this);
 	}
 
 	@Override
@@ -107,7 +108,7 @@ public class Secutilities extends JavaPlugin
 			p = (Player)sender;
 		else
 		{
-			System.out.println("[" + getDescription().getName() + "] The console cannot use this plugin.");
+			bl4ckkitCore.getMessageManager().sendDisallowMessage(this);
 			return true;
 		}
 

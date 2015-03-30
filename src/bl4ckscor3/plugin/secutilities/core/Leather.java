@@ -3,7 +3,6 @@ package bl4ckscor3.plugin.secutilities.core;
 import java.util.Arrays;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -11,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
 
 public class Leather implements ISecutilCommand
@@ -23,7 +23,7 @@ public class Leather implements ISecutilCommand
 		
 		if(stack.getType() == Material.COAL)
 		{
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] Available armor pieces are: helmet, chestplate, pants, leggings and boots.");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Available armor pieces are: helmet, chestplate, pants, leggings and boots.");
 			return;
 		}
 

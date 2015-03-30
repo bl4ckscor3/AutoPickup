@@ -4,15 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.core.Secutilities;
-import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
-import bl4ckscor3.plugin.secutilities.util.Utilities;
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 
 import com.earth2me.essentials.Essentials;
 import com.earth2me.essentials.User;
@@ -28,7 +25,7 @@ public class PvPLimit implements Listener
 	public static void setup(Plugin pl) throws PluginNotInstalledException
 	{
 		plugin = pl;
-		ess = (Essentials)Utilities.getPlugin((Secutilities)plugin, "Essentials");
+		ess = (Essentials)bl4ckkitCore.getPluginManager().getPlugin(pl, "Essentials");
 		regions.add("pvp");
 		regions.add("pvp_autumn");
 		regions.add("pvp_yoshiland");
@@ -60,7 +57,7 @@ public class PvPLimit implements Listener
 			}
 
 			if(cheatWasEnabled)
-				event.getPlayer().sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] You are not allowed to have cheats enabled in the PvP-Arena.");
+				bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "You are not allowed to have cheats enabled in the PvP-Arena.");
 		}
 	}
 }

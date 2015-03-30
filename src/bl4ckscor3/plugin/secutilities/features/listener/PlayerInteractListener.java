@@ -1,6 +1,5 @@
 package bl4ckscor3.plugin.secutilities.features.listener;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -9,6 +8,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
+
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 
 public class PlayerInteractListener implements Listener
 {
@@ -30,7 +31,7 @@ public class PlayerInteractListener implements Listener
 			{
 				Location l = event.getClickedBlock().getLocation();
 				
-				event.getPlayer().sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] x: " + l.getBlockX() + " y: " + l.getBlockY() + " z: " + l.getBlockZ());
+				bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "x: " + l.getBlockX() + " y: " + l.getBlockY() + " z: " + l.getBlockZ());
 				event.setCancelled(true);
 			}
 		}

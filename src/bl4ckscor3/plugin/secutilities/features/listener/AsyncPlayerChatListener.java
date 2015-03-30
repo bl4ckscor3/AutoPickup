@@ -10,6 +10,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+
 public class AsyncPlayerChatListener implements Listener
 {
 	public static HashMap<String, String> messages = new HashMap<String, String>();
@@ -91,7 +93,7 @@ public class AsyncPlayerChatListener implements Listener
 
 		if(messageBefore.equals(correctedMessage))
 		{
-			event.getPlayer().sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] There was nothing to correct.");
+			bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "There was nothing to correct.");
 			event.setCancelled(true);
 			return;
 		}
@@ -110,7 +112,7 @@ public class AsyncPlayerChatListener implements Listener
 	{
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			p.sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] " + message);
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, plugin, message);
 		}
 	}
 }

@@ -5,10 +5,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
+
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 
 public class Milk implements ISecutilCommand
 {
@@ -22,7 +23,7 @@ public class Milk implements ISecutilCommand
 				
 				if(pl == null)
 				{
-					p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] " + args[0] + " is currently not online.");
+					bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, args[0] + " is currently not online.");
 					return;
 				}
 				
@@ -32,8 +33,8 @@ public class Milk implements ISecutilCommand
 				{
 					p.removePotionEffect(effect.getType());
 				}
-				
-				p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] You removed all potion effects from " + args[0] + ".");
+
+				bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You removed all potion effects from " + args[0] + ".");
 			}
 		}
 		else
@@ -47,7 +48,7 @@ public class Milk implements ISecutilCommand
 					p.removePotionEffect(effect.getType());
 				}
 
-				p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] You removed all your potion effects.");
+				bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You removed all your potion effects.");
 			}
 		}
 	}

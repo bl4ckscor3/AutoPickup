@@ -7,9 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.secutilities.core.Secutilities;
-import bl4ckscor3.plugin.secutilities.exception.PluginNotInstalledException;
-import bl4ckscor3.plugin.secutilities.util.Utilities;
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 
 import com.earth2me.essentials.Essentials;
 
@@ -20,7 +19,7 @@ public class UniquePlayers implements ISecutilCommand
 	{
 		try
 		{
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] " + ChatColor.GOLD + ((Essentials)Utilities.getPlugin((Secutilities)pl, "Essentials")).getUserMap().getUniqueUsers() + ChatColor.RESET + " unique players have joined the server.");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, ChatColor.GOLD + "" + ((Essentials)bl4ckkitCore.getPluginManager().getPlugin(pl, "Essentials")).getUserMap().getUniqueUsers() + ChatColor.RESET + " unique players have joined the server.");
 		}
 		catch(PluginNotInstalledException e)
 		{

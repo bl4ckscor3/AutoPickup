@@ -3,12 +3,12 @@ package bl4ckscor3.plugin.secutilities.features.commands;
 import java.util.Arrays;
 import java.util.List;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 
 public class SignBreak implements ISecutilCommand
@@ -24,7 +24,7 @@ public class SignBreak implements ISecutilCommand
 				p.getWorld().getBlockAt(lastLocation).setType(Material.AIR);
 		}
 		else
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] You're not TehKitti.");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You're not TehKitti.");
 	}
 
 	@Override

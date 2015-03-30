@@ -4,18 +4,19 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+
 public class PvPCountdown implements ISecutilCommand
 {
 	public void exe(Player p, Plugin pl, String[] args)
 	{
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] Only command blocks can use this command.");
+		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Only command blocks can use this command.");
 	}
 	
 	public static void exe(final CommandSender sender, Plugin pl, final String[] args)

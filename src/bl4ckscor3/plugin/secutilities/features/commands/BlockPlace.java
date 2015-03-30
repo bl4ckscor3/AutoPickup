@@ -7,6 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 
 public class BlockPlace implements ISecutilCommand
@@ -16,12 +17,12 @@ public class BlockPlace implements ISecutilCommand
 		if(!BlockPlaceListener.blockPlaceOff.contains(p.getName()))
 		{
 			BlockPlaceListener.blockPlaceOff.add(p.getName());
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.RED + "OFF" + ChatColor.RESET + ".");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You turned block placing " + ChatColor.RED + "OFF" + ChatColor.RESET + ".");
 		}
 		else
 		{
 			BlockPlaceListener.blockPlaceOff.remove(p.getName());
-			p.sendMessage("[" + ChatColor.BLUE + pl.getDescription().getName() + ChatColor.RESET + "] You turned block placing " + ChatColor.GREEN + "ON" + ChatColor.RESET + ".");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You turned block placing " + ChatColor.GREEN + "ON" + ChatColor.RESET + ".");
 		}
 	}
 

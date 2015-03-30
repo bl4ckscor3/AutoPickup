@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -15,6 +14,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.commands.SignBreak;
 
 public class BlockBreakListener implements Listener
@@ -46,7 +46,7 @@ public class BlockBreakListener implements Listener
 			
 			event.setCancelled(true);
 			SignBreak.setSignLocation(event.getBlock().getLocation());
-			event.getPlayer().sendMessage("[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] Are you sure to break that sign, or do you just want to edit it? /signbreak or /edit <lineNumber> <line>");
+			bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "Are you sure to break that sign, or do you just want to edit it? /signbreak or /edit <lineNumber> <line>");
 			worker.schedule(r, 3, TimeUnit.SECONDS); //resetting location
 		}
 	}
