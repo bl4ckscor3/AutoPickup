@@ -15,6 +15,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
+import bl4ckscor3.plugin.secutilities.features.commands.Leather;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
 import bl4ckscor3.plugin.secutilities.features.commands.PvPCountdown;

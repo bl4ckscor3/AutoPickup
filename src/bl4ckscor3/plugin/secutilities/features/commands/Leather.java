@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.core;
+package bl4ckscor3.plugin.secutilities.features.commands;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,6 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
-import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
 
 public class Leather implements ISecutilCommand
 {
