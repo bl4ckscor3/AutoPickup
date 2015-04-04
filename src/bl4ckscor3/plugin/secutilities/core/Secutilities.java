@@ -69,12 +69,14 @@ public class Secutilities extends JavaPlugin
 			e.printStackTrace();
 		}
 
+		bl4ckkitCore.registerPlugin(this);
 		bl4ckkitCore.getMessageManager().sendEnabledMessage(this);
 	}
 
 	@Override
 	public void onDisable()
 	{
+		bl4ckkitCore.unregisterPlugin(this);
 		bl4ckkitCore.getMessageManager().sendDisabledMessage(this);
 	}
 
