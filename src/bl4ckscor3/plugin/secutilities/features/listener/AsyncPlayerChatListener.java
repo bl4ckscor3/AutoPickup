@@ -1,6 +1,8 @@
 package bl4ckscor3.plugin.secutilities.features.listener;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -8,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
@@ -28,7 +31,7 @@ public class AsyncPlayerChatListener implements Listener
 		if(event.getMessage().equals("."))
 			event.setCancelled(true);
 		
-		if(event.getMessage().startsWith("."))
+		if(event.getMessage().startsWith(".") && !event.getMessage().startsWith("._."))
 		{
 			event.setMessage(event.getMessage().substring(1));
 			return;
@@ -101,9 +104,15 @@ public class AsyncPlayerChatListener implements Listener
 		messages.put(userToCorrect, correctedMessage);
 
 		if(correctsDifferentUser)
+		{
 			sendMessage(userToCorrect + " was corrected by " + event.getPlayer().getName() + " and " + ChatColor.BOLD + "meant " + ChatColor.RESET + "to say: " + correctedMessage);
+			Bukkit.getServer().getPluginManager().callEvent(new AsyncPlayerChatEvent(true, event.getPlayer(), "[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] " + userToCorrect + " was corrected by " + event.getPlayer().getName() + " and " + ChatColor.BOLD + "meant " + ChatColor.RESET + "to say: " + correctedMessage, new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()))));
+		}
 		else
+		{
 			sendMessage(userToCorrect + ChatColor.BOLD + " meant " + ChatColor.RESET + "to say: " + correctedMessage);
+			Bukkit.getServer().getPluginManager().callEvent(new AsyncPlayerChatEvent(true, event.getPlayer(), "[" + ChatColor.BLUE + plugin.getDescription().getName() + ChatColor.RESET + "] " + userToCorrect + ChatColor.BOLD + " meant " + ChatColor.RESET + "to say: " + correctedMessage, new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()))));
+		}
 		
 		event.setCancelled(true);
 	}
