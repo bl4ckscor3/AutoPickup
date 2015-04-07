@@ -42,6 +42,12 @@ commands:
     leather:
         description: Gives the player the specified leather armor piece with the specified color.
         usgae: /<command> <armorpiece> <hexcolor>
+    killall:
+        description: Disabled.
+        usage: /<command> <args>
+    butcher:
+        description: Disabled.
+        usage: /<command> <args>
     
 permissions:
     secutil.blockbreak.toggle:
