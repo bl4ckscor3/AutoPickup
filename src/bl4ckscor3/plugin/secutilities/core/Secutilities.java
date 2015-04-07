@@ -33,7 +33,7 @@ import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.TDPlayerJo
 public class Secutilities extends JavaPlugin
 {
 	private static final LinkedList<ISecutilCommand> commands = new LinkedList<ISecutilCommand>();
-	
+
 	private void setupCommands()
 	{
 		commands.add(new BlockBreak());
@@ -45,7 +45,7 @@ public class Secutilities extends JavaPlugin
 		commands.add(new SignBreak());
 		commands.add(new UniquePlayers());
 	}
-	
+
 	@Override
 	public void onEnable()
 	{
@@ -59,7 +59,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
 		setupCommands();
-		
+
 		try
 		{
 			PvPLimit.setup(this);
@@ -91,7 +91,7 @@ public class Secutilities extends JavaPlugin
 			{
 				if(args.length == 1 || args.length == 2 || args.length > 3)
 					return false;
-				
+
 				PvPCountdown.exe(sender, this, args);
 				return true;
 			}
@@ -106,7 +106,7 @@ public class Secutilities extends JavaPlugin
 				return true;
 			}
 		}
-		
+
 		if(sender instanceof Player)
 			p = (Player)sender;
 		else
@@ -131,32 +131,27 @@ public class Secutilities extends JavaPlugin
 				}
 			}
 		}
-		
+
 		if(cmd.getName().equalsIgnoreCase("tp"))
-		{
 			TpOverride.exe(p, args, args.length < 3 ? "tpo " : "tele ");
-			return true;
-		}
 		else if(cmd.getName().equalsIgnoreCase("tphere"))
-		{
 			TpOverride.exe(p, args, "tpohere ");
-			return true;
-		}
-		
-		return false;
+		else if(cmd.getName().equalsIgnoreCase("killall") || cmd.getName().equals("butcher"))
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, this, "Kill commandos are blocked due to security reasons.");
+		return true;
 	}
-	
+
 	private boolean hasAPermission(Player p, String[] perms)
 	{
 		if(perms == null) //player does not need a permission for the command
 			return true;
-		
+
 		for(String s : perms)
 		{
 			if(p.hasPermission(s))
 				return true;
 		}
-		
+
 		return false;
 	}
 }
