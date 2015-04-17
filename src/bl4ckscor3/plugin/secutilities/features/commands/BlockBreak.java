@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -12,7 +13,8 @@ import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 
 public class BlockBreak implements ISecutilCommand
 {
-	public void exe(Player p, Plugin pl, String[] args)
+	@Override
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
 	{
 		if(!BlockBreakListener.blockBreakOff.contains(p.getName()))
 		{
@@ -26,18 +28,27 @@ public class BlockBreak implements ISecutilCommand
 		}
 	}
 
+	@Override
 	public String getLabel()
 	{
 		return "blockbreak";
 	}
 
+	@Override
 	public String[] getRequiredPermission()
 	{
 		return new String[]{"secutil.blockbreak.toggle"};
 	}
 	
+	@Override
 	public List<Integer> allowedArgumentLengths()
 	{
 		return Arrays.asList(new Integer[]{0});
+	}
+
+	@Override
+	public boolean isConsoleCommand()
+	{
+		return false;
 	}
 }

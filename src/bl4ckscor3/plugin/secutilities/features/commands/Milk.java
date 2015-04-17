@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
@@ -13,7 +14,7 @@ import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 
 public class Milk implements ISecutilCommand
 {
-	public void exe(Player p, Plugin pl, String[] args)
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
 	{
 		if(args.length == 1)
 		{
@@ -53,18 +54,27 @@ public class Milk implements ISecutilCommand
 		}
 	}
 
+	@Override
 	public String getLabel()
 	{
 		return "milk";
 	}
 
+	@Override
 	public String[] getRequiredPermission()
 	{
 		return new String[]{"secutil.milk.others", "secutil.milk.own"};
 	}
 
+	@Override
 	public List<Integer> allowedArgumentLengths()
 	{
 		return Arrays.asList(new Integer[]{0, 1});
+	}
+	
+	@Override
+	public boolean isConsoleCommand()
+	{
+		return false;
 	}
 }

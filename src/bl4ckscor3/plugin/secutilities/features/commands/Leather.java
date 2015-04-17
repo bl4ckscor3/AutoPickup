@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
@@ -15,7 +16,7 @@ import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 public class Leather implements ISecutilCommand
 {
 	@Override
-	public void exe(Player p, Plugin pl, String[] args)
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
 	{
 		ItemStack stack = new ItemStack(resolveArmorPart(args[0]));
 		LeatherArmorMeta meta;
@@ -60,6 +61,12 @@ public class Leather implements ISecutilCommand
 	public List<Integer> allowedArgumentLengths()
 	{
 		return Arrays.asList(new Integer[]{2});
+	}
+	
+	@Override
+	public boolean isConsoleCommand()
+	{
+		return false;
 	}
 	
 	private static Material resolveArmorPart(String part)

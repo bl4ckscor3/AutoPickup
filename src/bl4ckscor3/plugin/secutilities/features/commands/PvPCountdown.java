@@ -14,7 +14,8 @@ import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 
 public class PvPCountdown implements ISecutilCommand
 {
-	public void exe(Player p, Plugin pl, String[] args)
+	@Override
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
 	{
 		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Only command blocks can use this command.");
 	}
@@ -26,6 +27,7 @@ public class PvPCountdown implements ISecutilCommand
 		{
 			int i = 10;
 			
+			@Override
 			public void run()
 			{
 				if(i == 0)
@@ -46,18 +48,27 @@ public class PvPCountdown implements ISecutilCommand
 		scheduler.runTaskTimer(pl, r, 0, 20);
 	}
 
+	@Override
 	public String getLabel()
 	{
 		return "pvpcountdown";
 	}
 
+	@Override
 	public String[] getRequiredPermission()
 	{
 		return null;
 	}
 
+	@Override
 	public List<Integer> allowedArgumentLengths()
 	{
 		return Arrays.asList(new Integer[]{0});
+	}
+	
+	@Override
+	public boolean isConsoleCommand()
+	{
+		return false;
 	}
 }

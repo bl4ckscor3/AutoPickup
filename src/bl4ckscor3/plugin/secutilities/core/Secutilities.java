@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -111,21 +112,21 @@ public class Secutilities extends JavaPlugin
 
 		if(sender instanceof Player)
 			p = (Player)sender;
-		else
-		{
-			bl4ckkitCore.getMessageManager().sendDisallowMessage(this);
-			return true;
-		}
 
 		for(ISecutilCommand secutilCmd : commands)
 		{
 			if(secutilCmd.getLabel().equalsIgnoreCase(cmd.getName()))
 			{
-				if(hasAPermission(p, secutilCmd.getRequiredPermission()))
+				if(hasAPermission(sender, secutilCmd.getRequiredPermission()))
 				{
 					if(secutilCmd.allowedArgumentLengths().contains(args.length))
 					{
-						secutilCmd.exe(p, this, args);
+						if(sender instanceof ConsoleCommandSender && !secutilCmd.isConsoleCommand())
+						{	
+							bl4ckkitCore.getMessageManager().sendDisallowMessage(this);
+							return true;
+						}
+						secutilCmd.exe(sender, p, this, args);
 						return true;
 					}
 					else
@@ -143,14 +144,14 @@ public class Secutilities extends JavaPlugin
 		return true;
 	}
 
-	private boolean hasAPermission(Player p, String[] perms)
+	private boolean hasAPermission(CommandSender sender, String[] perms)
 	{
 		if(perms == null) //player does not need a permission for the command
 			return true;
 
 		for(String s : perms)
 		{
-			if(p.hasPermission(s))
+			if(sender.hasPermission(s))
 				return true;
 		}
 

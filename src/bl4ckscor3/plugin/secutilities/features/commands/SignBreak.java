@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -16,7 +17,7 @@ public class SignBreak implements ISecutilCommand
 	private static Location lastLocation;
 
 	@Override
-	public void exe(Player p, Plugin pl, String[] args)
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
 	{
 		if(p.getUniqueId().equals("09a3a2b3-77d3-408f-bff2-9a54e76733a9"))
 		{
@@ -45,6 +46,12 @@ public class SignBreak implements ISecutilCommand
 		return Arrays.asList(new Integer[]{0});
 	}
 
+	@Override
+	public boolean isConsoleCommand()
+	{
+		return false;
+	}
+	
 	public static void setSignLocation(Location ll)
 	{
 		lastLocation = ll;
