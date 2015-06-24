@@ -30,7 +30,7 @@ public class BlockPlaceListener implements Listener
 				case 200: //reinforced glass pane
 					newId = 102;
 					break;
-				case 1: //reinforced stone
+				case 203: //reinforced stone
 					newId = 98;
 					break;
 			}
