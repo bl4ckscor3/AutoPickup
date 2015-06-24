@@ -35,7 +35,8 @@ public class BlockPlaceListener implements Listener
 					break;
 			}
 			
-			event.getBlock().setTypeId(newId);
+			if(newId != 0) //id has changed
+				event.getBlock().setTypeId(newId);
 		}
 	}
 }
