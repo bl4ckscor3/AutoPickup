@@ -17,6 +17,7 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
+import bl4ckscor3.plugin.secutilities.features.commands.Join;
 import bl4ckscor3.plugin.secutilities.features.commands.Leather;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
@@ -44,6 +45,7 @@ public class Secutilities extends JavaPlugin
 		commands.add(new BlockBreak());
 		commands.add(new BlockPlace());
 		commands.add(new ColorCodes());
+		commands.add(new Join());
 		commands.add(new Leather());
 		commands.add(new LocTool());
 		commands.add(new Milk());
@@ -63,7 +65,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
 		getServer().getPluginManager().registerEvents(new RegionEnterListener(this), this);
 		getServer().getPluginManager().registerEvents(new RegionEnteredLeftListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		//timedisplayer
 		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
