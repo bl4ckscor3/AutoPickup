@@ -33,7 +33,7 @@ public class BlockBreakListener implements Listener
 	{
 		if(blockBreakOff.contains(event.getPlayer().getName()))
 			event.setCancelled(true);
-		else if(event.getPlayer().getUniqueId().equals("09a3a2b3-77d3-408f-bff2-9a54e76733a9") && isSign(event.getBlock().getType())) //TehKitti
+		else if(event.getPlayer().getUniqueId().equals("09a3a2b3-77d3-408f-bff2-9a54e76733a9") && isSign(event.getBlock().getType())) //Vauff
 		{
 			Runnable r = new Runnable()
 			{

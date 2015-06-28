@@ -25,7 +25,7 @@ public class SignBreak implements ISecutilCommand
 				p.getWorld().getBlockAt(lastLocation).setType(Material.AIR);
 		}
 		else
-			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You're not TehKitti.");
+			bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You're not Vauff.");
 	}
 
 	@Override

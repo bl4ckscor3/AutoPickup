@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.7.1
+version: 2.7.2
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -37,7 +37,7 @@ commands:
         usage: /<command>
         aliases: [uplayers,players,unique]
     signbreak:
-        description: Enables TehKitti to break signs.
+        description: Enables Vauff to break signs.
         usgae: /<command>
     leather:
         description: Gives the player the specified leather armor piece with the specified color.
