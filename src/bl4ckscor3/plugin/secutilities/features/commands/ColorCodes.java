@@ -24,6 +24,7 @@ public class ColorCodes implements ISecutilCommand
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&6: " + ChatColor.GOLD + "Orange");
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&7: " + ChatColor.GRAY + "Grey");
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&8: " + ChatColor.DARK_GRAY + "Dark Grey");
+		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&9: " + ChatColor.BLUE + "Blue");
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&a: " + ChatColor.GREEN + "Green");
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&b: " + ChatColor.AQUA + "Aqua");
 		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "&c: " + ChatColor.RED + "Red");
