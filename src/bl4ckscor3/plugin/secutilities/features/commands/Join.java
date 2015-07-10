@@ -11,8 +11,10 @@ import org.bukkit.plugin.Plugin;
 
 public class Join implements ISecutilCommand
 {
+	public static boolean hasJoined = false;
+	
 	@Override
-	public void exe(CommandSender sender, Player p, Plugin pl, String[] args)
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws InterruptedException
 	{
 		if(((Player)sender).getName().equals("Vauff"))
 		{
@@ -23,6 +25,8 @@ public class Join implements ISecutilCommand
 				
 				player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
 			}
+			
+			hasJoined = true;
 		}
 	}
 

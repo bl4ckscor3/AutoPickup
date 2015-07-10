@@ -19,7 +19,7 @@ public class PlayerJoinListener implements Listener
 	}
 	
 	@EventHandler
-	public void onPlayerJoin(PlayerJoinEvent event)
+	public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException
 	{
 		if(event.getPlayer().getName().equals("Vauff"))
 		{
@@ -31,7 +31,10 @@ public class PlayerJoinListener implements Listener
 					player.hidePlayer(event.getPlayer());
 				
 				if(player.getName().equals("bl4ckscor3") || player.getName().equals("Geforce") || player.getName().equals("Vauff"))
+				{
+					Thread.sleep(2000);
 					bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
+				}
 			}
 		}
 	}
