@@ -29,6 +29,7 @@ import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
+import bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.RegionEnteredLeftListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
@@ -64,6 +65,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
 		getServer().getPluginManager().registerEvents(new RegionEnterListener(this), this);
 		getServer().getPluginManager().registerEvents(new RegionEnteredLeftListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		//timedisplayer
 		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
