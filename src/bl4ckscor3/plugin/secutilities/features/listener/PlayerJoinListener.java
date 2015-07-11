@@ -1,5 +1,7 @@
 package bl4ckscor3.plugin.secutilities.features.listener;
 
+import javax.swing.SwingUtilities;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,15 +27,33 @@ public class PlayerJoinListener implements Listener
 		{
 			event.setJoinMessage(null);
 			
-			for(Player player : Bukkit.getOnlinePlayers())
+			for(final Player player : Bukkit.getOnlinePlayers())
 			{
 				if(!player.getName().equals("bl4ckscor3") || !player.getName().equals("Geforce") || !player.getName().equals("Vauff"))
 					player.hidePlayer(event.getPlayer());
 				
-				if(player.getName().equals("bl4ckscor3") || player.getName().equals("Geforce") || player.getName().equals("Vauff"))
-				{
-					Thread.sleep(2000);
+				if(player.getName().equals("bl4ckscor3") || player.getName().equals("Geforce"))
 					bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
+				
+				if(player.getName().equals("Vauff"))
+				{
+					SwingUtilities.invokeLater(new Runnable()
+					{
+						@Override
+						public void run()
+						{
+							try
+							{
+								Thread.sleep(4000);
+							}
+							catch (InterruptedException e)
+							{
+								e.printStackTrace();
+							}
+							
+							bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
+						}
+					});
 				}
 			}
 		}
