@@ -38,10 +38,10 @@ commands:
         aliases: [uplayers,players,unique]
     signbreak:
         description: Enables Vauff to break signs.
-        usgae: /<command>
+        usage: /<command>
     leather:
         description: Gives the player the specified leather armor piece with the specified color.
-        usgae: /<command> <armorpiece> <hexcolor>
+        usage: /<command> <armorpiece> <hexcolor>
     killall:
         description: Disabled.
         usage: /<command> <args>
