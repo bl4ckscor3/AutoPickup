@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -18,9 +19,11 @@ public class BlockPlaceListener implements Listener
 		if(blockPlaceOff.contains(event.getPlayer().getName()))
 			event.setCancelled(true);
 		
-		if(RegionEnteredLeftListener.isPlayerInRegion(event.getPlayer().getName(), "town"))
+		Location l = event.getBlock().getLocation();
+		
+		if((l.getX() >= -600 && l.getX() <= 88) && (l.getZ() >= -46 && l.getZ() <= 723))
 		{
-			int newId = 0;
+			int newId = -1;
 			
 			switch(event.getBlock().getTypeId())
 			{
@@ -35,7 +38,7 @@ public class BlockPlaceListener implements Listener
 					break;
 			}
 			
-			if(newId != 0) //id has changed
+			if(newId != -1) //id has changed
 				event.getBlock().setTypeId(newId);
 		}
 	}
