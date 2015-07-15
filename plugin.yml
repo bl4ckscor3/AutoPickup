@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.7.5
+version: 2.8
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -50,6 +50,9 @@ commands:
         usage: /<command> <args>
     join:
         description: Let's Vauff join.
+        usage: /<command>
+    togglefloor:
+        description: This is not a useful command.
         usage: /<command>
     
 permissions:

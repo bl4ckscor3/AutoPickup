@@ -13,6 +13,7 @@ import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.DonatorRoomEntrance;
 import bl4ckscor3.plugin.secutilities.features.PvPLimit;
+import bl4ckscor3.plugin.secutilities.features.ToggleFloor;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
@@ -113,6 +114,10 @@ public class Secutilities extends JavaPlugin
 			{
 				TpOverride.exeCB((BlockCommandSender)sender, args, "tpohere ");
 				return true;
+			}
+			else if(cmd.getName().equals("togglefloor"))
+			{
+				ToggleFloor.exeCB((BlockCommandSender)sender, args);
 			}
 		}
 
