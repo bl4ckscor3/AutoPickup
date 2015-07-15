@@ -7,8 +7,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitScheduler;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 
@@ -20,32 +18,19 @@ public class PvPCountdown implements ISecutilCommand
 		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Only command blocks can use this command.");
 	}
 	
-	public static void exe(final CommandSender sender, Plugin pl, final String[] args)
+	public static void exe(final CommandSender sender, Plugin pl, final String[] args) throws InterruptedException
 	{
-		final BukkitScheduler scheduler = Bukkit.getScheduler();
-		BukkitRunnable r = new BukkitRunnable()
+		for(int i = 10; i >= 0; i--)
 		{
-			int i = 10;
-			
-			@Override
-			public void run()
-			{
-				if(i == 0)
-				{
-					Bukkit.dispatchCommand(sender, "broadcast Fight!");
-					
-					if(args.length == 3)
-						Bukkit.dispatchCommand(sender, "setblock " + args[0] + " " + args[1] + " " + args[2] + " minecraft:redstone_block");
-					
-					scheduler.cancelAllTasks();
-					return;
-				}
-				
-				Bukkit.dispatchCommand(sender, "broadcast " + i--);
-			}
-		};
+			Bukkit.dispatchCommand(sender, "broadcast " + i);
+			Thread.sleep(1000);
+		}
 		
-		scheduler.runTaskTimer(pl, r, 0, 20);
+		Bukkit.dispatchCommand(sender, "broadcast Fight!");
+		
+		if(args.length == 3)
+			Bukkit.dispatchCommand(sender, "setblock " + args[0] + " " + args[1] + " " + args[2] + " minecraft:redstone_block");
+		
 	}
 
 	@Override
