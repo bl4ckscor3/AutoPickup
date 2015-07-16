@@ -20,7 +20,7 @@ public class PvPCountdown implements ISecutilCommand
 	
 	public static void exe(final CommandSender sender, Plugin pl, final String[] args) throws InterruptedException
 	{
-		for(int i = 10; i >= 0; i--)
+		for(int i = 10; i >= 1; i--)
 		{
 			Bukkit.dispatchCommand(sender, "broadcast " + i);
 			Thread.sleep(1000);
