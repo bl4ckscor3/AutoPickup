@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.8.2
+version: 2.8.3
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -26,7 +26,7 @@ commands:
         usage: /<command> [args]
         aliases: [tp2p,teleport]
     tphere:
-        description: Executes /tpohere if neccessary.
+        description: Executes /tpohere if neccessary.w
         usage: /<command> [args]
         aliases: [s]
     milk:

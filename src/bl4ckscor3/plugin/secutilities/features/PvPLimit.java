@@ -1,8 +1,6 @@
 package bl4ckscor3.plugin.secutilities.features;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,21 +18,17 @@ public class PvPLimit implements Listener
 {
 	private static Plugin plugin;
 	private static Essentials ess;
-	private static List<String> regions = new ArrayList<String>();
 
 	public static void setup(Plugin pl) throws PluginNotInstalledException
 	{
 		plugin = pl;
 		ess = (Essentials)bl4ckkitCore.getPluginManager().getPlugin(pl, "Essentials");
-		regions.add("pvp");
-		regions.add("pvp_autumn");
-		regions.add("pvp_yoshiland");
 	}
 
 	@EventHandler
 	public void onRegionEntered(RegionEnteredEvent event) throws IOException
 	{
-		if(regions.contains(event.getRegion().getId()))
+		if(event.getRegion().getId().startsWith("pvp_"))
 		{
 			if(event.getPlayer().hasPermission("secutil.pvplimit.bypass"))
 				return;
