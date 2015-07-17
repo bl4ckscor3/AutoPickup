@@ -1,5 +1,8 @@
 package bl4ckscor3.plugin.secutilities.features.listener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.SwingUtilities;
 
 import org.bukkit.Bukkit;
@@ -14,10 +17,14 @@ import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 public class PlayerJoinListener implements Listener
 {
 	private static Plugin plugin;
+	public static List<String> names = new ArrayList<String>();
 	
 	public PlayerJoinListener(Plugin pl)
 	{
 		plugin = pl;
+		names.add("bl4ckscor3");
+		names.add("Geforce");
+		names.add("Vauff");
 	}
 	
 	@EventHandler
@@ -29,10 +36,10 @@ public class PlayerJoinListener implements Listener
 			
 			for(final Player player : Bukkit.getOnlinePlayers())
 			{
-				if(!player.getName().equals("bl4ckscor3") || !player.getName().equals("Geforce") || !player.getName().equals("Vauff"))
+				if(!names.contains(event.getPlayer().getName()))
 					player.hidePlayer(event.getPlayer());
 				
-				if(player.getName().equals("bl4ckscor3") || player.getName().equals("Geforce"))
+				if(names.contains(event.getPlayer().getName()))
 					bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
 				
 				if(player.getName().equals("Vauff"))

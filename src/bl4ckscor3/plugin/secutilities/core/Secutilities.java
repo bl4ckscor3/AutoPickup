@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.features.DonatorRoomEntrance;
+import bl4ckscor3.plugin.secutilities.features.Misc;
 import bl4ckscor3.plugin.secutilities.features.PvPLimit;
 import bl4ckscor3.plugin.secutilities.features.ToggleFloor;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
@@ -63,6 +64,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
+		getServer().getPluginManager().registerEvents(new Misc(), this);
 		//timedisplayer
 		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
