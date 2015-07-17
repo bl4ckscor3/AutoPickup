@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 
 public class Join implements ISecutilCommand
@@ -25,7 +26,8 @@ public class Join implements ISecutilCommand
 				
 				player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
 			}
-			
+
+			pl.getServer().getPluginManager().callEvent(new PlayerJoinEvent(p, ChatColor.YELLOW + "Vauff joined the game."));
 			hasJoined = true;
 		}
 	}
