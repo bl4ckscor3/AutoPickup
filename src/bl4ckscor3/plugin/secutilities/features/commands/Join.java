@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener;
 
 public class Join implements ISecutilCommand
@@ -26,7 +25,7 @@ public class Join implements ISecutilCommand
 				if(!PlayerJoinListener.names.contains(player.getName()) && player.getName().equals("Vauff"))
 					player.showPlayer(p);
 				
-				bl4ckkitCore.getMessageManager().sendChatMessage(player, pl, ChatColor.YELLOW + "Vauff joined the game.");
+				player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
 			}
 		}
 	}
