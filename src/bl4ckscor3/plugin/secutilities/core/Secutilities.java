@@ -61,7 +61,7 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(this), this);
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		getServer().getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
-		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
+		getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
 		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
 		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new Misc(), this);

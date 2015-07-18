@@ -22,7 +22,7 @@ public class Join implements ISecutilCommand
 		{
 			for(Player player : Bukkit.getOnlinePlayers())
 			{
-				if(!PlayerJoinListener.names.contains(player.getName()) && player.getName().equals("Vauff"))
+				if(!PlayerJoinListener.names.contains(player.getName()) || player.getName().equals("Vauff"))
 					player.showPlayer(p);
 				
 				player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
