@@ -19,7 +19,6 @@ import bl4ckscor3.plugin.secutilities.features.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.features.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.features.commands.ColorCodes;
 import bl4ckscor3.plugin.secutilities.features.commands.ISecutilCommand;
-import bl4ckscor3.plugin.secutilities.features.commands.Join;
 import bl4ckscor3.plugin.secutilities.features.commands.Leather;
 import bl4ckscor3.plugin.secutilities.features.commands.LocTool;
 import bl4ckscor3.plugin.secutilities.features.commands.Milk;
@@ -31,12 +30,11 @@ import bl4ckscor3.plugin.secutilities.features.listener.AsyncPlayerChatListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerInteractListener;
-import bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerTeleportListener;
+import bl4ckscor3.plugin.secutilities.features.listener.WorldJoinListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.features.listener.timedisplayer.TDPlayerJoinListener;
-import bl4ckscor3.plugin.secutilities.features.listener3.WorldJoinListener;
 
 public class Secutilities extends JavaPlugin
 {
@@ -47,7 +45,6 @@ public class Secutilities extends JavaPlugin
 		commands.add(new BlockBreak());
 		commands.add(new BlockPlace());
 		commands.add(new ColorCodes());
-		commands.add(new Join());
 		commands.add(new Leather());
 		commands.add(new LocTool());
 		commands.add(new Milk());
@@ -63,9 +60,8 @@ public class Secutilities extends JavaPlugin
 		getServer().getPluginManager().registerEvents(new PlayerInteractListener(this), this);
 		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
 		getServer().getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
-		getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
+		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
 		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
-		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
 		getServer().getPluginManager().registerEvents(new PlayerTeleportListener(), this);
 		getServer().getPluginManager().registerEvents(new WorldJoinListener(), this);
 		getServer().getPluginManager().registerEvents(new Misc(), this);

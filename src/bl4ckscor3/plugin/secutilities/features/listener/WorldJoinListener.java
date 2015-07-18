@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.listener3;
+package bl4ckscor3.plugin.secutilities.features.listener;
 
 import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;
