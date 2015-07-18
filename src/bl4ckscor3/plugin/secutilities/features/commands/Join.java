@@ -9,28 +9,24 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
 import bl4ckscor3.plugin.secutilities.features.listener.PlayerJoinListener;
 
 public class Join implements ISecutilCommand
 {
 	public static boolean hasJoined = false;
-
+	
 	@Override
 	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws InterruptedException
 	{
-		if(!hasJoined)
+		if(sender instanceof Player && p.getName().equals("Vauff") && !hasJoined)
 		{
-			if(((Player)sender).getName().equals("Vauff"))
+			for(Player player : Bukkit.getOnlinePlayers())
 			{
-				for(Player player : Bukkit.getOnlinePlayers())
-				{
-					if(!PlayerJoinListener.names.contains(p.getName()))
-						player.showPlayer(p);
-
-					player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
-				}
-
-				hasJoined = true;
+				if(!PlayerJoinListener.names.contains(player.getName()) && player.getName().equals("Vauff"))
+					player.showPlayer(p);
+				
+				bl4ckkitCore.getMessageManager().sendChatMessage(player, pl, ChatColor.YELLOW + "Vauff joined the game.");
 			}
 		}
 	}

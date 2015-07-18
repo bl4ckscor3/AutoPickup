@@ -14,7 +14,12 @@ public class PlayerQuitListener implements Listener
 		if(AsyncPlayerChatListener.messages.containsKey(event.getPlayer().getName()))
 			AsyncPlayerChatListener.messages.remove(event.getPlayer().getName());
 		
-		if(event.getPlayer().getName().equals("Vauff") && !Join.hasJoined)
-			event.setQuitMessage("");
+		if(event.getPlayer().getName().equals("Vauff"))
+		{
+			if(!Join.hasJoined)
+				event.setQuitMessage(null);
+			else
+				Join.hasJoined = false;
+		}
 	}
 }

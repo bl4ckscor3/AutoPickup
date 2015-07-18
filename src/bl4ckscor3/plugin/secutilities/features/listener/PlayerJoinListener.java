@@ -3,8 +3,6 @@ package bl4ckscor3.plugin.secutilities.features.listener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.SwingUtilities;
-
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,16 +11,19 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.secutilities.features.commands.Join;
 
 public class PlayerJoinListener implements Listener
 {
 	private static Plugin plugin;
-	public static List<String> names = new ArrayList<String>();
+	public static final List<String> names = new ArrayList<String>();
 	
 	public PlayerJoinListener(Plugin pl)
 	{
 		plugin = pl;
 		names.add("bl4ckscor3");
+		names.add("Vakonof");
+		names.add("ExcelGamer");
 		names.add("Geforce");
 		names.add("Vauff");
 	}
@@ -30,39 +31,26 @@ public class PlayerJoinListener implements Listener
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) throws InterruptedException
 	{
+		if(!Join.hasJoined && !event.getPlayer().getName().equals("Vauff") && bl4ckkitCore.getPlayerManager().isPlayerOnline("Vauff"))
+			event.getPlayer().hidePlayer(Bukkit.getPlayer("Vauff"));
+		
 		if(event.getPlayer().getName().equals("Vauff"))
 		{
 			event.setJoinMessage(null);
 			
-			for(final Player player : Bukkit.getOnlinePlayers())
+			for(Player p : Bukkit.getOnlinePlayers())
 			{
-				if(!names.contains(event.getPlayer().getName()))
-					player.hidePlayer(event.getPlayer());
-				
-				if(names.contains(event.getPlayer().getName()))
-					bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
-				
-				if(player.getName().equals("Vauff"))
+				if(!names.contains(p.getName()) || p.getName().equals("Vauff"))
 				{
-					SwingUtilities.invokeLater(new Runnable()
-					{
-						@Override
-						public void run()
-						{
-							try
-							{
-								Thread.sleep(4000);
-							}
-							catch (InterruptedException e)
-							{
-								e.printStackTrace();
-							}
-							
-							bl4ckkitCore.getMessageManager().sendChatMessage(player, plugin, "Vauff silently joined.");
-						}
-					});
+					p.hidePlayer(event.getPlayer());
+					continue;
 				}
+				
+				bl4ckkitCore.getMessageManager().sendChatMessage(p, plugin, "Vauff silently joined.");
 			}
+			
+			Thread.sleep(4000);
+			bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "Vauff silently joined.");
 		}
 	}
 }
