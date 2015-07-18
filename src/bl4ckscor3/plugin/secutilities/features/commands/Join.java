@@ -27,6 +27,8 @@ public class Join implements ISecutilCommand
 				
 				player.sendMessage(ChatColor.YELLOW + "Vauff joined the game.");
 			}
+			
+			hasJoined = true;
 		}
 	}
 
