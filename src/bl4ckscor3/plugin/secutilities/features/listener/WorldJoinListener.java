@@ -11,6 +11,11 @@ public class WorldJoinListener implements Listener
 	@EventHandler
 	public void onWorldJoin(WorldJoinEvent event)
 	{
+		String name = event.getPlayer().getName();
+		
+		if(name.equals("Geforce") || name.equals("Vauff") || name.equals("bl4ckscor3"))
+			return;
+		
 		if(event.getWorld().getName().equals("creative"))
 			event.getPlayer().setGameMode(GameMode.CREATIVE);
 		else if(event.getWorld().getName().equals("world"))
