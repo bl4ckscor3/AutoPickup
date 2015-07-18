@@ -80,3 +80,6 @@ permissions:
     secutil.leather.use:
         description: Gives access to the /leather command.
         default: op
+    secutil.showSJ
+        description: Gives access to see if Vauff silently joins.
+        default: op
