@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.commands;
+package bl4ckscor3.plugin.secutilities.commands;
 
 import java.util.ArrayList;
 import java.util.Arrays;

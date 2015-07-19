@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features;
+package bl4ckscor3.plugin.secutilities.misc;
 
 import org.bukkit.World;
 import org.bukkit.block.Block;

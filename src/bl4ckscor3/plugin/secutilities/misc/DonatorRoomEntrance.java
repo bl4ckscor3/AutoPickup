@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features;
+package bl4ckscor3.plugin.secutilities.misc;
 
 import java.io.IOException;
 

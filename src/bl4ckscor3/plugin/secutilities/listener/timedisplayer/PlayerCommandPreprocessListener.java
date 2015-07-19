@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.listener.timedisplayer;
+package bl4ckscor3.plugin.secutilities.listener.timedisplayer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;

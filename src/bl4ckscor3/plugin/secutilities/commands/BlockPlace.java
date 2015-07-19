@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.commands;
+package bl4ckscor3.plugin.secutilities.commands;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
-import bl4ckscor3.plugin.secutilities.features.listener.BlockPlaceListener;
+import bl4ckscor3.plugin.secutilities.listener.BlockPlaceListener;
 
 public class BlockPlace implements ISecutilCommand
 {

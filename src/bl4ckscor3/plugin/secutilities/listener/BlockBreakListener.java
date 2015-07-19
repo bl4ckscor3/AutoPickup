@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.listener;
+package bl4ckscor3.plugin.secutilities.listener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
-import bl4ckscor3.plugin.secutilities.features.commands.SignBreak;
+import bl4ckscor3.plugin.secutilities.commands.SignBreak;
 
 public class BlockBreakListener implements Listener
 {

@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.listener;
+package bl4ckscor3.plugin.secutilities.listener;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

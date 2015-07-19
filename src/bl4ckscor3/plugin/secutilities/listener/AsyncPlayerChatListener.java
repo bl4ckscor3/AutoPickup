@@ -1,4 +1,4 @@
-package bl4ckscor3.plugin.secutilities.features.listener;
+package bl4ckscor3.plugin.secutilities.listener;
 
 import java.util.Arrays;
 import java.util.HashMap;
