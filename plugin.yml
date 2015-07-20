@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.12.1
+version: 2.13.1
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -51,6 +51,9 @@ commands:
     togglefloor:
         description: This is not a useful command.
         usage: /<command>
+    giveskull:
+        description: Gives the specified amount of the specified playerskull to the specified player and checks for arguments.
+        usage: /<command> <skullowner> <receiver> <amount>
     
 permissions:
     secutil.blockbreak.toggle:
@@ -80,6 +83,9 @@ permissions:
     secutil.leather.use:
         description: Gives access to the /leather command.
         default: op
-    secutil.showSJ
+    secutil.showSJ:
         description: Gives access to see if Vauff silently joins.
+        default: op
+    secutil.giveskull.use:
+        description: Gives access to the /giveskull command.
         default: op

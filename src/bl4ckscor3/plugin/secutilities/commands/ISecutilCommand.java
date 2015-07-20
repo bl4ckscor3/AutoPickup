@@ -8,7 +8,7 @@ import org.bukkit.plugin.Plugin;
 
 public interface ISecutilCommand
 {
-	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws InterruptedException;
+	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws Exception;
 	
 	public String getLabel();
 	

@@ -14,6 +14,7 @@ import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.commands.ColorCodes;
+import bl4ckscor3.plugin.secutilities.commands.GiveSkull;
 import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.commands.Leather;
 import bl4ckscor3.plugin.secutilities.commands.LocTool;
@@ -46,6 +47,7 @@ public class Secutilities extends JavaPlugin
 		commands.add(new BlockBreak());
 		commands.add(new BlockPlace());
 		commands.add(new ColorCodes());
+		commands.add(new GiveSkull());
 		commands.add(new Leather());
 		commands.add(new LocTool());
 		commands.add(new Milk());
@@ -149,7 +151,7 @@ public class Secutilities extends JavaPlugin
 						{
 							secutilCmd.exe(sender, p, this, args);
 						}
-						catch (InterruptedException e)
+						catch (Exception e)
 						{
 							e.printStackTrace();
 						}
