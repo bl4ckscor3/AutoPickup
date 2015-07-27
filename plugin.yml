@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.13.1
+version: 2.13.2
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -53,7 +53,7 @@ commands:
         usage: /<command>
     giveskull:
         description: Gives the specified amount of the specified playerskull to the specified player and checks for arguments.
-        usage: /<command> <skullowner> <receiver> <amount>
+        usage: /<command> <receiver> <skullowner> <amount>
     
 permissions:
     secutil.blockbreak.toggle:

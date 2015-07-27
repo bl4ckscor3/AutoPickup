@@ -24,7 +24,7 @@ public class GiveSkull implements ISecutilCommand
 	@Override
 	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws InterruptedException, PluginNotInstalledException
 	{
-		Player receiver = Bukkit.getPlayer(args[1]);
+		Player receiver = Bukkit.getPlayer(args[0]);
 		User u = ((Essentials)bl4ckkitCore.getPluginManager().getPlugin(pl, "Essentials")).getUser(receiver);
 		ItemStack stack = new ItemStack(Material.SKULL_ITEM, Integer.parseInt(args[2]), (byte) 3);
 		SkullMeta meta = (SkullMeta)stack.getItemMeta();
@@ -36,10 +36,10 @@ public class GiveSkull implements ISecutilCommand
 			return;
 		}
 		
-		meta.setOwner(args[0]);
-		meta.setDisplayName(ChatColor.WHITE + "Skull of " + args[0]);
+		meta.setOwner(args[1]);
+		meta.setDisplayName(ChatColor.WHITE + "Skull of " + args[1]);
 		stack.setItemMeta(meta);
-		Bukkit.dispatchCommand(sender, "eco take " + args[1] + " " + (Integer.parseInt(args[2]) * 150));
+		Bukkit.dispatchCommand(sender, "eco take " + args[0] + " " + (Integer.parseInt(args[2]) * 150));
 		overflow = receiver.getInventory().addItem(stack);
 		
 		if(!overflow.isEmpty())
