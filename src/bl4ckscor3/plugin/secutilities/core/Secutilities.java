@@ -58,20 +58,20 @@ public class Secutilities extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
-		getServer().getPluginManager().registerEvents(new BlockBreakListener(this), this);
-		getServer().getPluginManager().registerEvents(new BlockPlaceListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerInteractListener(this), this);
-		getServer().getPluginManager().registerEvents(new PvPLimit(), this);
-		getServer().getPluginManager().registerEvents(new AsyncPlayerChatListener(this), this);
-		getServer().getPluginManager().registerEvents(new PlayerQuitListener(), this);
-		getServer().getPluginManager().registerEvents(new DonatorRoomEntrance(), this);
-		getServer().getPluginManager().registerEvents(new PlayerTeleportListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-		getServer().getPluginManager().registerEvents(new WorldJoinListener(), this);
-		getServer().getPluginManager().registerEvents(new Misc(), this);
+		bl4ckkitCore.getPluginManager().registerEvents(this,
+				new BlockBreakListener(this),
+				new BlockPlaceListener(),
+				new PlayerInteractListener(this),
+				new PvPLimit(),
+				new AsyncPlayerChatListener(this),
+				new PlayerQuitListener(),
+				new DonatorRoomEntrance(),
+				new PlayerTeleportListener(),
+				new PlayerJoinListener(this),
+				new WorldJoinListener(),
+				new Misc());
 		//timedisplayer
-		getServer().getPluginManager().registerEvents(new TDPlayerJoinListener(), this);
-		getServer().getPluginManager().registerEvents(new PlayerCommandPreprocessListener(), this);
+		bl4ckkitCore.getPluginManager().registerEvents(this, new TDPlayerJoinListener(), new PlayerCommandPreprocessListener());
 		setupCommands();
 
 		try
