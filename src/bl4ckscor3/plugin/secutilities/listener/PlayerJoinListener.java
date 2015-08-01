@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,12 +22,12 @@ public class PlayerJoinListener implements Listener
 {
 	private static Plugin plugin;
 	private static final List<String> playersJoined = new ArrayList<String>(); 
-	
+
 	public PlayerJoinListener(Plugin pl)
 	{
 		plugin = pl;
 	}
-	
+
 	@EventHandler
 	public void onPlayerJoin(final PlayerJoinEvent event)
 	{
@@ -38,19 +39,51 @@ public class PlayerJoinListener implements Listener
 					bl4ckkitCore.getMessageManager().sendChatMessage(p, plugin, "Vauff silently joined.");
 			}
 		}
-		
+
 		if(!playersJoined.contains(event.getPlayer().getName()))
 		{
-			Bukkit.getScheduler().runTaskLater(plugin, new Runnable(){
-				@Override
-				public void run()
-				{
-					Bukkit.getServer().getPluginManager().callEvent(new AsyncPlayerChatEvent(false, Bukkit.getPlayer("bl4ckscor3"), ChatColor.WHITE + "[" + ChatColor.RED + "Admin" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + "bl4ckscor3" + ChatColor.WHITE + ": Welcome, " + event.getPlayer().getName() + " :)", new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()))));
-				}
-			}, 3L * 20); //wait 3 seconds
+			Random r = new Random();
+
+			if(bl4ckkitCore.getPlayerManager().isPlayerOnline("bl4ckscor3"))
+			{
+				Bukkit.getScheduler().runTaskLater(plugin, new Runnable(){
+					@Override
+					public void run()
+					{
+						String message = ChatColor.WHITE + "[" + ChatColor.RED + "Admin" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + "bl4ckscor3" + ChatColor.WHITE + ": Welcome " + event.getPlayer().getName() + " :)";
+						
+						for(Player p : Bukkit.getOnlinePlayers())
+						{
+							p.sendMessage(message);
+						}
+						
+						Bukkit.getServer().getPluginManager().callEvent(new AsyncPlayerChatEvent(false, Bukkit.getPlayer("bl4ckscor3"), message, new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()))));
+					}
+				}, 3L + (long)r.nextInt(6) * 20); //wait 3 seconds
+			}
+
+			if(bl4ckkitCore.getPlayerManager().isPlayerOnline("Vauff"))
+			{
+				Bukkit.getScheduler().runTaskLater(plugin, new Runnable(){
+					@Override
+					public void run()
+					{
+						String message = ChatColor.WHITE + "[" + ChatColor.RED + "Admin" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + "Vauff" + ChatColor.WHITE + ": welcome " + event.getPlayer().getName() + "!";
+						
+						for(Player p : Bukkit.getOnlinePlayers())
+						{
+							p.sendMessage(message);
+						}
+						
+						Bukkit.getServer().getPluginManager().callEvent(new AsyncPlayerChatEvent(false, Bukkit.getPlayer("Vauff"), message, new HashSet<Player>(Arrays.asList(Bukkit.getOnlinePlayers()))));
+					}
+				}, 3L + (long)r.nextInt(6) * 20); //wait 3 seconds
+			}
+			
+			playersJoined.add(event.getPlayer().getName());
 		}
 	}
-	
+
 	public static void setupPlayerList()
 	{
 		for(File f : new File("world/players").listFiles())
