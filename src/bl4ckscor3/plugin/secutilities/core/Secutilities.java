@@ -71,7 +71,6 @@ public class Secutilities extends JavaPlugin
 				new WorldJoinListener(),
 				new Misc());
 		//timedisplayer
-		PlayerJoinListener.setupPlayerList();
 		bl4ckkitCore.getPluginManager().registerEvents(this, new TDPlayerJoinListener(), new PlayerCommandPreprocessListener());
 		setupCommands();
 
