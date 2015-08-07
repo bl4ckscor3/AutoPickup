@@ -14,6 +14,7 @@ import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 import bl4ckscor3.plugin.secutilities.commands.BlockBreak;
 import bl4ckscor3.plugin.secutilities.commands.BlockPlace;
 import bl4ckscor3.plugin.secutilities.commands.ColorCodes;
+import bl4ckscor3.plugin.secutilities.commands.CreativeWarp;
 import bl4ckscor3.plugin.secutilities.commands.GiveSkull;
 import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.commands.Leather;
@@ -30,6 +31,7 @@ import bl4ckscor3.plugin.secutilities.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerTeleportListener;
+import bl4ckscor3.plugin.secutilities.listener.SignChangeListener;
 import bl4ckscor3.plugin.secutilities.listener.WorldJoinListener;
 import bl4ckscor3.plugin.secutilities.listener.timedisplayer.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.listener.timedisplayer.TDPlayerJoinListener;
@@ -47,6 +49,7 @@ public class Secutilities extends JavaPlugin
 		commands.add(new BlockBreak());
 		commands.add(new BlockPlace());
 		commands.add(new ColorCodes());
+		commands.add(new CreativeWarp());
 		commands.add(new GiveSkull());
 		commands.add(new Leather());
 		commands.add(new LocTool());
@@ -58,6 +61,7 @@ public class Secutilities extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
+		bl4ckkitCore.registerPlugin(this);
 		bl4ckkitCore.getPluginManager().registerEvents(this,
 				new BlockBreakListener(this),
 				new BlockPlaceListener(),
@@ -69,7 +73,8 @@ public class Secutilities extends JavaPlugin
 				new PlayerTeleportListener(),
 				new PlayerJoinListener(this),
 				new WorldJoinListener(),
-				new Misc());
+				new Misc(),
+				new SignChangeListener(this));
 		//timedisplayer
 		bl4ckkitCore.getPluginManager().registerEvents(this, new TDPlayerJoinListener(), new PlayerCommandPreprocessListener());
 		setupCommands();
@@ -83,7 +88,6 @@ public class Secutilities extends JavaPlugin
 			e.printStackTrace();
 		}
 
-		bl4ckkitCore.registerPlugin(this);
 		bl4ckkitCore.getMessageManager().sendEnabledMessage(this);
 	}
 
