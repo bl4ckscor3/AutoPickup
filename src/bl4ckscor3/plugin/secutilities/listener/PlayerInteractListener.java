@@ -49,7 +49,7 @@ public class PlayerInteractListener implements Listener
 			{
 				String[] lines = ((Sign)event.getClickedBlock().getState()).getLines();
 				
-				if(lines[0].startsWith("" + ChatColor.DARK_RED))
+				if(lines[0].equalsIgnoreCase("" + ChatColor.DARK_RED + "[CWarp]"))
 				{
 					bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "This warp does not exist.");
 					return;
