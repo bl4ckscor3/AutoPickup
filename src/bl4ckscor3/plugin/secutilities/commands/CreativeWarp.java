@@ -33,7 +33,14 @@ public class CreativeWarp implements ISecutilCommand
 					bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "This warp already exists.");
 					return;
 				}
-
+				
+				if(!p.getWorld().getName().equals("creative"))
+				{
+					bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "You can only set these types of warps in the creative world.");
+					f.delete();
+					return;
+				}
+				
 				yaml.set("x", p.getLocation().getX());
 				yaml.set("y", p.getLocation().getY());
 				yaml.set("z", p.getLocation().getZ());
@@ -91,7 +98,7 @@ public class CreativeWarp implements ISecutilCommand
 					return;
 				}
 
-				p.teleport(new Location(Bukkit.getWorld("world"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")));
+				p.teleport(new Location(Bukkit.getWorld("creative"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")));
 				bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Warped to " + ChatColor.AQUA + args[0] + ChatColor.WHITE + ".");
 			}
 		}
