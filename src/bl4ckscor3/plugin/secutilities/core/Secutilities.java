@@ -110,12 +110,7 @@ public class Secutilities extends JavaPlugin
 				if(args.length == 1 || args.length == 2 || args.length > 3)
 					return false;
 
-				try
-				{
-					PvPCountdown.exe(sender, this, args);
-				}
-				catch (InterruptedException e){}
-				
+				PvPCountdown.exe(sender, this, args);
 				return true;
 			}
 			else if(cmd.getName().equalsIgnoreCase("tp"))

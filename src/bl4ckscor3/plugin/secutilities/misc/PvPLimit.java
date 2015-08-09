@@ -6,12 +6,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
-import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
-import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
-
 import com.earth2me.essentials.Essentials;
 import com.earth2me.essentials.User;
 import com.mewin.WGRegionEvents.events.RegionEnteredEvent;
+
+import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.bl4ckkitCore.exception.PluginNotInstalledException;
 
 //This is semi hardcoded for BreakIn' Bad
 public class PvPLimit implements Listener
@@ -28,7 +28,7 @@ public class PvPLimit implements Listener
 	@EventHandler
 	public void onRegionEntered(RegionEnteredEvent event) throws IOException
 	{
-		if(event.getRegion().getId().startsWith("pvp_"))
+		if(event.getRegion().getId().endsWith("pvp") || event.getRegion().getId().endsWith("pvpinside"))
 		{
 			if(event.getPlayer().hasPermission("secutil.pvplimit.bypass"))
 				return;

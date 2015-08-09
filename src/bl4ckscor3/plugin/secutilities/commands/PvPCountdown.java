@@ -17,20 +17,33 @@ public class PvPCountdown implements ISecutilCommand
 	{
 		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Only command blocks can use this command.");
 	}
-	
-	public static void exe(final CommandSender sender, Plugin pl, final String[] args) throws InterruptedException
+
+	public static void exe(final CommandSender sender, Plugin pl, final String[] args)
 	{
-		for(int i = 10; i >= 1; i--)
-		{
-			Bukkit.dispatchCommand(sender, "broadcast " + i);
-			Thread.sleep(1000);
-		}
-		
-		Bukkit.dispatchCommand(sender, "broadcast Fight!");
-		
-		if(args.length == 3)
-			Bukkit.dispatchCommand(sender, "setblock " + args[0] + " " + args[1] + " " + args[2] + " minecraft:redstone_block");
-		
+		Bukkit.getScheduler().runTaskAsynchronously(pl, new Runnable(){
+			@Override
+			public void run()
+			{
+				for(int i = 10; i >= 1; i--)
+				{
+					Bukkit.dispatchCommand(sender, "broadcast " + i);
+
+					try
+					{
+						Thread.sleep(1000);
+					}
+					catch(InterruptedException e)
+					{
+						e.printStackTrace();
+					}
+				}
+				
+				Bukkit.dispatchCommand(sender, "broadcast Fight!");
+
+				if(args.length == 3)
+					Bukkit.dispatchCommand(sender, "setblock " + args[0] + " " + args[1] + " " + args[2] + " minecraft:redstone_block");
+			}
+		});
 	}
 
 	@Override
@@ -50,7 +63,7 @@ public class PvPCountdown implements ISecutilCommand
 	{
 		return Arrays.asList(new Integer[]{0});
 	}
-	
+
 	@Override
 	public boolean isConsoleCommand()
 	{
