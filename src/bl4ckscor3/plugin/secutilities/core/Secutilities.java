@@ -27,14 +27,13 @@ import bl4ckscor3.plugin.secutilities.commands.UniquePlayers;
 import bl4ckscor3.plugin.secutilities.listener.AsyncPlayerChatListener;
 import bl4ckscor3.plugin.secutilities.listener.BlockBreakListener;
 import bl4ckscor3.plugin.secutilities.listener.BlockPlaceListener;
+import bl4ckscor3.plugin.secutilities.listener.PlayerCommandPreprocessListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerInteractListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerQuitListener;
 import bl4ckscor3.plugin.secutilities.listener.PlayerTeleportListener;
 import bl4ckscor3.plugin.secutilities.listener.SignChangeListener;
 import bl4ckscor3.plugin.secutilities.listener.WorldJoinListener;
-import bl4ckscor3.plugin.secutilities.listener.timedisplayer.PlayerCommandPreprocessListener;
-import bl4ckscor3.plugin.secutilities.listener.timedisplayer.TDPlayerJoinListener;
 import bl4ckscor3.plugin.secutilities.misc.DonatorRoomEntrance;
 import bl4ckscor3.plugin.secutilities.misc.Misc;
 import bl4ckscor3.plugin.secutilities.misc.PvPLimit;
@@ -74,9 +73,8 @@ public class Secutilities extends JavaPlugin
 				new PlayerJoinListener(this),
 				new WorldJoinListener(),
 				new Misc(),
-				new SignChangeListener(this));
-		//timedisplayer
-		bl4ckkitCore.getPluginManager().registerEvents(this, new TDPlayerJoinListener(), new PlayerCommandPreprocessListener());
+				new SignChangeListener(this),
+				new PlayerCommandPreprocessListener());
 		setupCommands();
 
 		try

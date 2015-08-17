@@ -41,9 +41,18 @@ public class AsyncPlayerChatListener implements Listener
 			event.setMessage("you " + event.getMessage().substring(2));
 		else if(event.getMessage().startsWith("ur "))
 			event.setMessage("your " + event.getMessage().substring(3));
+		else if(event.getMessage().startsWith("r "))
+			event.setMessage("are " + event.getMessage().substring(2));
 		
 		event.setMessage(event.getMessage().replace(" u ", " you ").replace(" ur ", " your ").replace(" r ", " are "));
-		/*because this was annoying :3*/
+		
+		if(event.getMessage().endsWith(" u"))
+			event.setMessage(event.getMessage().substring(2, event.getMessage().length() - 5) + " you");
+		else if(event.getMessage().endsWith(" ur"))
+			event.setMessage(event.getMessage().substring(2, event.getMessage().length() - 6) + " your");
+		else if(event.getMessage().endsWith(" r"))
+			event.setMessage(event.getMessage().substring(2, event.getMessage().length() - 5) + " are");
+		/*because this was annoying*/
 		
 		String message = event.getMessage();
 		String username = event.getPlayer().getName();
