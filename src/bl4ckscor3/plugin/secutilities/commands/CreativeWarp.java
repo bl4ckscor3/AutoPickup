@@ -10,6 +10,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
@@ -98,7 +99,7 @@ public class CreativeWarp implements ISecutilCommand
 					return;
 				}
 
-				p.teleport(new Location(Bukkit.getWorld("creative"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")));
+				p.teleport(new Location(Bukkit.getWorld("creative"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")), TeleportCause.COMMAND);
 				bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "Warped to " + ChatColor.AQUA + args[0] + ChatColor.WHITE + ".");
 			}
 		}

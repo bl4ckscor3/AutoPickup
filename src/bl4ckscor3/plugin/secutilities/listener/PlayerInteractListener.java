@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerTeleportEvent.TeleportCause;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
@@ -59,7 +60,7 @@ public class PlayerInteractListener implements Listener
 					File f = new File(plugin.getDataFolder(), "/warps/" + lines[1] + ".yml");
 					YamlConfiguration yaml = YamlConfiguration.loadConfiguration(f);
 
-					event.getPlayer().teleport(new Location(Bukkit.getWorld("creative"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")));
+					event.getPlayer().teleport(new Location(Bukkit.getWorld("creative"), yaml.getDouble("x"), yaml.getDouble("y"), yaml.getDouble("z"), (float)yaml.getDouble("yaw"), (float)yaml.getDouble("pitch")), TeleportCause.COMMAND);
 					bl4ckkitCore.getMessageManager().sendChatMessage(event.getPlayer(), plugin, "Warped to " + ChatColor.AQUA + lines[1] + ChatColor.WHITE + ".");
 				}
 			}
