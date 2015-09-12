@@ -19,7 +19,7 @@ public class MaxPlayers implements ISecutilCommand
 	@Override
 	public void exe(CommandSender sender, Player p, Plugin pl, String[] args) throws Exception
 	{
-		bl4ckkitCore.getMessageManager().sendChatMessage(p, pl, "A maximum of " + ChatColor.GOLD + getMaxPlayerCount(pl) + ChatColor.RESET + " players have joined the server at once.");
+		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "A maximum of " + ChatColor.GOLD + getMaxPlayerCount(pl) + ChatColor.RESET + " players have joined the server at once.");
 	}
 
 	@Override
