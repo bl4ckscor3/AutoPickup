@@ -1,6 +1,6 @@
 name: Secutilities
 main: bl4ckscor3.plugin.secutilities.core.Secutilities
-version: 2.14.8
+version: 2.15
 author: bl4ckscor3
 description: Several utilities for the official SecurityCraft server "BreakIn' Bad"
 depend: [bl4ckkitCore]
@@ -58,6 +58,10 @@ commands:
         description: An alternative to Essentials' warp command, designed for the creative world of BreakIn' Bad.
         usage: /<command> <set|delete|list|warpname> [warpname]
         aliases: [c,cwarp]
+    maxplayers:
+        description: Shows how many players have been online the most at one time on the server.
+        usage: /<command>
+        aliases: [mp]
 permissions:
     secutil.blockbreak.toggle:
         description: Gives access to the /blockbreak command.

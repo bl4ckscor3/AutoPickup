@@ -8,6 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.Plugin;
 
 import bl4ckscor3.plugin.bl4ckkitCore.core.bl4ckkitCore;
+import bl4ckscor3.plugin.secutilities.commands.MaxPlayers;
 
 public class PlayerJoinListener implements Listener
 {
@@ -21,6 +22,8 @@ public class PlayerJoinListener implements Listener
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event)
 	{
+		MaxPlayers.increase(plugin);
+		
 		if(event.getPlayer().getName().equals("Vauff"))
 		{
 			for(Player p : Bukkit.getOnlinePlayers())

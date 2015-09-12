@@ -19,6 +19,7 @@ import bl4ckscor3.plugin.secutilities.commands.GiveSkull;
 import bl4ckscor3.plugin.secutilities.commands.ISecutilCommand;
 import bl4ckscor3.plugin.secutilities.commands.Leather;
 import bl4ckscor3.plugin.secutilities.commands.LocTool;
+import bl4ckscor3.plugin.secutilities.commands.MaxPlayers;
 import bl4ckscor3.plugin.secutilities.commands.Milk;
 import bl4ckscor3.plugin.secutilities.commands.PvPCountdown;
 import bl4ckscor3.plugin.secutilities.commands.SignBreak;
@@ -67,7 +68,7 @@ public class Secutilities extends JavaPlugin
 				new PlayerInteractListener(this),
 				new PvPLimit(),
 				new AsyncPlayerChatListener(this),
-				new PlayerQuitListener(),
+				new PlayerQuitListener(this),
 				new DonatorRoomEntrance(),
 				new PlayerTeleportListener(),
 				new PlayerJoinListener(this),
@@ -86,6 +87,7 @@ public class Secutilities extends JavaPlugin
 			e.printStackTrace();
 		}
 
+		MaxPlayers.setPlayerCountOnEnable(getServer().getOnlinePlayers().length);
 		bl4ckkitCore.getMessageManager().sendEnabledMessage(this);
 	}
 
