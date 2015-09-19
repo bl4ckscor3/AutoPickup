@@ -39,7 +39,8 @@ public class GiveSkull implements ISecutilCommand
 		meta.setOwner(args[1]);
 		meta.setDisplayName(ChatColor.WHITE + "Skull of " + args[1]);
 		stack.setItemMeta(meta);
-		Bukkit.dispatchCommand(sender, "eco take " + args[0] + " " + (Integer.parseInt(args[2]) * 150));
+		Bukkit.dispatchCommand(pl.getServer().getConsoleSender(), "eco take " + args[0] + " " + (Integer.parseInt(args[2]) * 150));
+		bl4ckkitCore.getMessageManager().sendChatMessage(sender, pl, "Took " + (Integer.parseInt(args[2]) * 150) + " from the balance of " + receiver.getName() + ".");
 		overflow = receiver.getInventory().addItem(stack);
 		
 		if(!overflow.isEmpty())
